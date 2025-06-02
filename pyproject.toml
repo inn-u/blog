@@ -4,8 +4,14 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.13"
 dependencies = [
+    "bandit>=1.8.3",
     "django>=5.2.1",
     "pillow>=11.2.1",
     "psycopg[binary]>=3.2.9",
     "python-dotenv>=1.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.12",
 ]
