@@ -10,6 +10,7 @@ class PostImageInline(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     inlines = [PostImageInline]
+    exclude = ('slug',)
 
 
 admin.site.register(Post, PostAdmin)
