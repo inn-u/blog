@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<div class="container">
+    <div class="article-holder">
+        <!-- article-wrap-->
+        <div class="article-wrap  col-wrap">
+            <!-- article-holder -->
+            <article class="single-article">
+                <!--  article title -->
+                <h2 class="single-article-title fl-wrap"> <a href="about.html#">About me</a></h2>
+                <!--  article titleend -->
+                <div class="clearfix"></div>
+                <div class="separator img-separator    "><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
+                <!--  blog media-->
+                <div class="blog-media">
+                    <img src="{% static 'images/bg/3.jpg' %}" class="respimg" alt="">
+                </div>
+                <!--  blog media end -->
+                <div class=" fl-wrap">
+                    <h3 align="left"> Hello, my name is  Matthew  Kowalsky.</h3>
+                    <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor . Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor</p>
+                    <blockquote>
+                        <p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p>
+                    </blockquote>
+                    <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor . Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                    <div class="signature"><img src="{% static 'images/signature2.png' %}" alt=""></div>
+                </div>
+            </article>
+            <!-- article end -->
+        </div>
+        <!-- article-wrap end -->
+        <!-- main-sidebar -->
+        <div class="main-sidebar">
+            <div class="main-sidebar-widgets">
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>About Me</h3>
+                    <div class="about-widget">
+                        <img src="{% static 'images/about-sb.jpg' %}" alt="">
+                        <h4>Photographer  &amp; Blogger</h4>
+                        <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue.  </p>
+                        <div class="signature"><img src="{% static 'images/signature2.png' %}" alt=""></div>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Subscribe</h3>
+                    <div class="subscribe-widget">
+                        <form class="mc4wp-form" method="post">
+                            <input type="email" class="mc4wp_email" name="EMAIL" placeholder="Your email address" required="">
+                            <input type="submit" class="mc4wp_submit" value="Send">
+                        </form>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Recent Posts</h3>
+                    <div class="recent-post-widget">
+                        <ul>
+                            <li>
+                                <div class="recent-post-img"><a href="about.html#"><img src="{% static 'images/instagram/4.jpg' %}" alt=""></a></div>
+                                <div class="recent-post-content">
+                                    <h4><a href="about.html#">Snowy Mountains Trip</a></h4>
+                                    <div class="recent-post-opt">
+                                        <span class="post-date">3 May 2016</span>
+                                        <a href="about.html#" class="post-comments">0 Comments</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recent-post-img"><a href="about.html#"><img src="images/instagram/5.jpg" alt=""></a></div>
+                                <div class="recent-post-content">
+                                    <h4><a href="about.html#">Snowy Mountains Trip</a></h4>
+                                    <div class="recent-post-opt">
+                                        <span class="post-date">3 May 2016</span>
+                                        <a href="about.html#" class="post-comments">0 Comments</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recent-post-img"><a href="about.html#"><img src="images/instagram/6.jpg" alt=""></a></div>
+                                <div class="recent-post-content">
+                                    <h4><a href="about.html#">Snowy Mountains Trip</a></h4>
+                                    <div class="recent-post-opt">
+                                        <span class="post-date">3 May 2016</span>
+                                        <a href="about.html#" class="post-comments">0 Comments</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Resent tags </h3>
+                    <div class="tags-widget">
+                        <div class="tagcloud">
+                            <a href="about.html#">Lifystyle</a>
+                            <a href="about.html#">Travel</a>
+                            <a href="about.html#">Trip</a>
+                            <a href="about.html#">Outdoor</a>
+                            <a href="about.html#">Camping</a>
+                            <a href="about.html#">Photo</a>
+                            <a href="about.html#">Adventure</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>My instagram</h3>
+                    <div class="instagram-widget">
+                        <div class="jr-insta-thumb">
+                            <ul>
+                                <li>
+                                    <a href="about.html#"><img src="images/instagram/1.jpg" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="about.html#"><img src="images/instagram/2.jpg" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="about.html#"><img src="images/instagram/3.jpg" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="about.html#"><img src="images/instagram/4.jpg" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="about.html#"><img src="images/instagram/5.jpg" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="about.html#"><img src="images/instagram/6.jpg" alt=""></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Banner widget</h3>
+                    <div class="banner-widget">
+                        <img src="images/banner.jpg" alt="">
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Categories</h3>
+                    <div class="category-widget">
+                        <ul class="cat-item">
+                            <li><a href="about.html#">Lifystyle</a>(12)</li>
+                            <li><a href="about.html#">Outdoor</a>(22)</li>
+                            <li><a href="about.html#">Camping</a>(10)</li>
+                            <li><a href="about.html#">Travel</a>(4)</li>
+                            <li><a href="about.html#">Adventure</a>(5)</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Social widget</h3>
+                    <div class=" social-widget">
+                        <ul>
+                            <li><a href="about.html#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="about.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="about.html#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="about.html#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="about.html#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+            </div>
+        </div>
+        <!-- main-sidebar end-->
+    </div>
+</div>
+{% endblock %}

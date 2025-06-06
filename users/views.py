@@ -1,0 +1,37 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, UpdateView
+
+from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .models import UserProfile
+
+
+class DashboardView(LoginRequiredMixin, TemplateView):
+    template_name = 'user-dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
+
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'user-register.html', {'form': form})
+
+
+class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'user-profile-update.html'
+    model = UserProfile
+    form_class = CustomUserChangeForm
+    success_url = reverse_lazy('dashboard')
+
+    def get_object(self, queryset=None):
+        return self.request.user

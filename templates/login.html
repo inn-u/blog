@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 >{{ title }}</h1>
+
+<div  class="container">
+    <h2 class="content-title">Login</h2>
+    <span class="separator gray-separator small-separator no-align-separator"></span>
+    {% if form.errors %}
+        <p style="color:red;">Invalid email or password</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="hidden" name="next" value="{{ next|default:'/dashboard' }}">
+
+        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+        <button type="submit" class="wpcf7-submit">Login</button>
+            <button type="button" class="wpcf7-submit" onclick="location.href='/register/'">Register</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

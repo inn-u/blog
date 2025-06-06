@@ -13,28 +13,103 @@
         </ul>
       </div>
       <ul class="top-bar-contacts fl-right">
-        <li><span>Phone:</span><a href="#">+7(111)123456789</a></li>
         <li><span>Mail:</span><a href="#">yourmail@domain.com</a></li>
+
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'dashboard' %}" class="tagcloud">My account</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}" class="tagcloud">Login</a></li>
+        {% endif %}
       </ul>
     </div>
   </div>
+
   <div class="top-bar-menu-wrap">
-    <div class="container">
-      <span class="menubutton">Menu</span>
-      <nav class="top-bar-menu">
-        <ul class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Posts</a></li>
-          <li><a href="#">Gallery</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Features</a></li>
-        </ul>
-      </nav>
-      <div class="show-search show-fixed-search fl-right"><i class="fa fa-search"></i></div>
-      <div class="sb-nav-button sh-hid-sb fl-right">
-        <span></span><span></span>
-        </div>
-    </div>
+      <div class="container">
+          <span class="menubutton">Menu</span>
+          <nav class="top-bar-menu" style="display: block;">
+              <ul class="menu">
+                  <li>
+                      <a href="{% url 'home' %}">Home</a>
+                      <!--second level -->
+                      <ul>
+                          <li><a href="index3.html">Full width slider</a></li>
+                          <li><a href="index2.html">Carousel </a></li>
+                          <li><a href="index5.html">Backgroud Video + Textslider</a></li>
+                          <li><a href="index10.html">Slideshow</a></li>
+                          <li><a href="index11.html">Image + Carousel</a></li>
+                          <li><a href="index12.html">Video + Carousel</a></li>
+                          <li><a href="index13.html">Backgroud Video</a></li>
+                          <li><a href="index14.html">Image</a></li>
+                          <li>
+                              <a href="index.html#">Post layout</a>
+                              <!--third level -->
+                              <ul>
+                                  <li><a href="index6.html">List layout + Sidebar</a></li>
+                                  <li><a href="index7.html">Full width + Sidebar</a></li>
+                                  <li><a href="index8.html">Masonry + Sidebar</a></li>
+                                  <li><a href="index9.html">Masonry Without Sidebar</a></li>
+                              </ul>
+                              <!--third level end-->
+                          </li>
+                      </ul>
+                      <!--second level end-->
+                  </li>
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li>
+                      <a href="{% url 'post_list' %}">Posts</a>
+                      <!--second level  -->
+                      <ul>
+                          <li><a href="post-single.html">Slider</a></li>
+                          <li><a href="post-single2.html">Galley</a></li>
+                          <li><a href="post-single3.html">Video</a></li>
+                          <li><a href="post-single4.html">Image</a></li>
+                          <li><a href="post-single5.html">Music</a></li>
+                      </ul>
+                      <!--second level end-->
+                  </li>
+                  <li>
+                      <a href="index.html#">Category</a>
+                      <!--second level end-->
+                      <ul>
+                          <li><a href="index.html#">Travel</a></li>
+                          <li><a href="index.html#">Films</a></li>
+                          <li><a href="index.html#">Outdoor</a></li>
+                          <li><a href="index.html#">Photos</a></li>
+                          <li><a href="index.html#">Lifestyle</a></li>
+                      </ul>
+                      <!--second level end-->
+                  </li>
+                  <li>
+                      <a href="index.html#">Gallery</a>
+                      <!--second level end-->
+                      <ul>
+                          <li><a href="gallery.html">3 columns</a></li>
+                          <li><a href="gallery2.html">4 columns</a></li>
+                          <li><a href="gallery3.html">2 columns</a></li>
+                      </ul>
+                      <!--second level end-->
+                  </li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li>
+                      <a href="index.html#">Features</a>
+                      <!--second level -->
+                      <ul>
+                          <li><a href="header2.html">Header Light</a></li>
+                          <li><a href="header3.html">Header minimal</a></li>
+                          <li><a href="footer2.html">Footer light</a></li>
+                          <li><a href="footer3.html">Footer minimal</a></li>
+                          <li><a href="404.html">404 page</a></li>
+                      </ul>
+                      <!--second level end-->
+                  </li>
+              </ul>
+          </nav>
+          <div class="show-search show-fixed-search fl-right"><i class="fa fa-search"></i></div>
+          <!-- search widget end -->
+          <div class="sb-nav-button sh-hid-sb fl-right">
+              <span></span><span></span><span></span>
+          </div>
+      </div>
   </div>
 </header>

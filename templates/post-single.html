@@ -1,589 +1,294 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}{{ post.title }}{% endblock %}
-
 {% block content %}
-<h1>{{ post.title }}</h1>
-<p>{{ post.published_date }}</p>
-
-{% if post.image %}
-      <img src="{{ post.image.url }}" alt="{{ post.title }}">
-{% endif %}
-
-<body>
-    <!--Loader-->
-    <!--Loader end -->
-    <!--================= main start ================-->
-    <div id="main">
-        <header id="top-bar" class="dark-header">
-            <div class="top-bar-info">
-                <div class="container">
-                    <div class="top-bar-social fl-left">
-                        <ul>
-                            <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="post-single.html#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
-                        </ul>
-                    </div>
-                    <ul class="top-bar-contacts fl-right">
-                        <li><span>Phone:</span><a href="post-single.html#">+7(111)123456789</a></li>
-                        <li><span>Mail : </span><a href="post-single.html#">yourmail@domian.com</a></li>
-                    </ul>
-                </div>
+<div id="main">
+    <div id="wrapper"
+        <!-- hero wrap -->
+        <!-- hero wrap end-->
+        <div class="clearfix"></div>
+        <div class="container">
+            <!-- category-nav  -->
+            <div class="category-nav">
+                <div class="category-nav-inner">
+<!--                        <span class="cat-button">Categories</span>-->
+<!--                        <ul>-->
+<!--                            <li><a href="post-single.html#">Travel</a><span class="tool-count">10</span></li>-->
+<!--                            <li><a href="post-single.html#">Films</a><span class="tool-count">12</span></li>-->
+<!--                            <li><a href="post-single.html#">Outdoor</a><span class="tool-count">4</span></li>-->
+<!--                            <li><a href="post-single.html#">Photos</a><span class="tool-count">5</span></li>-->
+<!--                            <li><a href="post-single.html#">Lifestyle</a><span class="tool-count">23</span></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
             </div>
-            <div class="top-bar-menu-wrap">
-                <div class="container">
-                    <span class="menubutton">Menu</span>
-                    <nav class="top-bar-menu">
-                        <ul class="menu">
-                            <li>
-                                <a href="index.html">Home</a>
-                                <!--second level -->
-                                <ul>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/index3.html">Full width slider</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/index2.html">Carousel </a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/index5.html">Backgroud Video + Textslider</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/index10.html">Slideshow</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/index11.html">Image + Carousel</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/index12.html">Video + Carousel</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/index13.html">Backgroud Video</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/index14.html">Image</a></li>
-                                    <li>
-                                        <a href="post-single.html#">Post layout</a>
-                                        <!--third level -->
-                                        <ul>
-                                            <li><a href="../../../../Frontends/travel_blog/travel_blog/index6.html">List layout + Sidebar</a></li>
-                                            <li><a href="../../../../Frontends/travel_blog/travel_blog/index7.html">Full width + Sidebar</a></li>
-                                            <li><a href="../../../../Frontends/travel_blog/travel_blog/index8.html">Masonry + Sidebar</a></li>
-                                            <li><a href="../../../../Frontends/travel_blog/travel_blog/index9.html">Masonry Without Sidebar</a></li>
-                                        </ul>
-                                        <!--third level end-->
-                                    </li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li><a href="../../../../Frontends/travel_blog/travel_blog/about.html">About</a></li>
-                            <li>
-                                <a href="post-single.html#">Posts</a>
-                                <!--second level  -->
-                                <ul>
-                                    <li><a href="post-single.html">Slider</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/post-single2.html">Galley</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/post-single3.html">Video</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/post-single4.html">Image</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/post-single5.html">Music</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li>
-                                <a href="post-single.html#">Category</a>
-                                <!--second level end-->
-                                <ul>
-                                    <li><a href="post-single.html#">Travel</a></li>
-                                    <li><a href="post-single.html#">Films</a></li>
-                                    <li><a href="post-single.html#">Outdoor</a></li>
-                                    <li><a href="post-single.html#">Photos</a></li>
-                                    <li><a href="post-single.html#">Lifestyle</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li>
-                                <a href="post-single.html#">Gallery</a>
-                                <!--second level end-->
-                                <ul>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/gallery.html">3 columns</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/gallery2.html">4 columns</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/gallery3.html">2 columns</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                            <li><a href="../../../../Frontends/travel_blog/travel_blog/contact.html">Contact</a></li>
-                            <li>
-                                <a href="post-single.html#">Features</a>
-                                <!--second level -->
-                                <ul>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/header2.html">Header Light</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/header3.html">Header minimal</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/footer2.html">Footer light</a></li>
-                                    <li><a href="../../../../Frontends/travel_blog/travel_blog/footer3.html">Footer minimal</a></li>
-                                    <li><a href="404.html">404 page</a></li>
-                                </ul>
-                                <!--second level end-->
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="show-search show-fixed-search fl-right"><i class="fa fa-search"></i></div>
-                    <!-- search widget end -->
-                    <div class="sb-nav-button sh-hid-sb fl-right">
-                        <span></span><span></span><span></span>
-                    </div>
-                </div>
-            </div>
-            <!-- container  end  -->
-        </header>
-        <!-- top-bar  end  -->
-        <div id="wrapper">
-            <!-- hero wrap -->
-            <div class="hero-wrap">
-                <div class="hero-bg">
-                    <div class="bg" data-bg="images/bg/12.jpg"></div>
-                    <div class="overlay"></div>
-                </div>
-                <div class="hero-inner">
-                    <div class="container">
-                        <div class="logo-holder">
-                            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <!-- category-nav  end-->
+            <!-- article-holder -->
+            <div class="article-holder">
+                <!-- article-wrap-->
+                <div class="article-wrap col-wrap">
+                    <!-- article-holder -->
+                    <article class="single-article">
+                        <!--  article title -->
+                        <span class="single-article-date">{{ post.published_date }}</span>
+                        <h2 class="single-article-title fl-wrap"> <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
+                        <div class="single-article-cat fl-wrap">
+                            <a href="post-single.html#">Travel</a>
+                            <a href="post-single.html#">Films</a>
+                            <a href="post-single.html#">Photos</a>
                         </div>
-                        <div class="hero-quote fl-wrap">
-                            <p>" A super cool template for bloggers, photographers and travelers "</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- hero wrap end-->
-            <div class="clearfix"></div>
-            <div class="container">
-                <!-- category-nav  -->
-                <div class="category-nav">
-                    <div class="category-nav-inner">
-                        <span class="cat-button">Categories</span>
-                        <ul>
-                            <li><a href="post-single.html#">Travel</a><span class="tool-count">10</span></li>
-                            <li><a href="post-single.html#">Films</a><span class="tool-count">12</span></li>
-                            <li><a href="post-single.html#">Outdoor</a><span class="tool-count">4</span></li>
-                            <li><a href="post-single.html#">Photos</a><span class="tool-count">5</span></li>
-                            <li><a href="post-single.html#">Lifestyle</a><span class="tool-count">23</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- category-nav  end-->
-                <!-- article-holder -->
-                <div class="article-holder">
-                    <!-- article-wrap-->
-                    <div class="article-wrap col-wrap">
-                        <!-- article-holder -->
-                        <article class="single-article">
-                            <!--  article title -->
-                            <span class="single-article-date">27 may 2016</span>
-                            <h2 class="single-article-title fl-wrap"> <a href="post-single.html#">Snowy Mountains Trip</a></h2>
-                            <div class="single-article-cat fl-wrap">
-                                <a href="post-single.html#">Travel</a>
-                                <a href="post-single.html#">Films</a>
-                                <a href="post-single.html#">Photos</a>
-                            </div>
-                            <!--  article titleend -->
-                            <div class="clearfix"></div>
-                            <div class="separator img-separator    "><img src="images/sep-blk.png"  alt=""></div>
-                            <!--  blog media-->
-                            <div class="blog-media">
-                                <div class="single-slider-holder fl-wrap">
-                                    <div class="single-slider fl-wrap">
-                                        <div class="item"> <img src="images/article/big/14.jpg" class="respimg" alt=""></div>
-                                        <div class="item"> <img src="images/article/big/2.jpg" class="respimg" alt=""></div>
-                                        <div class="item"> <img src="images/article/big/12.jpg" class="respimg" alt=""></div>
-                                        <div class="item"> <img src="images/article/big/31.jpg" class="respimg" alt=""></div>
-                                    </div>
-                                    <div class="customNavigation">
-                                        <a class="prev-slide transition"><i class="fa fa-caret-left"></i>  </a>
-                                        <span class="num-holder2"></span>
-                                        <a class="next-slide transition"> <i class="fa fa-caret-right"></i></a>
-                                    </div>
+                        <!--  article titleend -->
+                        <div class="clearfix"></div>
+                        <div class="separator img-separator    "><img src="{% static 'images/sep-blk.png' %}"  alt=""></div>
+                        <!--  blog media-->
+                        <div class="blog-media">
+                            <div class="single-slider-holder fl-wrap slider-wrapper">
+                                <div class="single-slider fl-wrap">
+                                    {% for image in post.images.all %}
+                                        <div class="div class="item {% if forloop.first %}active{% endif %}">
+                                            <img src="{{ image.image.url }}" alt="post image">
+                                        </div>
+                                    {% empty %}
+                                        <p>No images</p>
+                                    {% endfor %}
+                                </div>
+                                <div class="customNavigation">
+                                    <a class="prev-slide transition"><i class="fa fa-caret-left"></i></a>
+                                    <span class="num-holder2"></span>
+                                    <a class="next-slide transition"><i class="fa fa-caret-right"></i></a>
                                 </div>
                             </div>
-                            <!--  blog media end -->
-                            <div class="single-article-inner">
-                                <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor . Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor</p>
-                                <p><img src="images/article/small/1.jpg" class="leftimg" alt="">Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor . Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor</p>
-                                <p><img src="images/article/small/2.jpg" class="rightimg" alt="">Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor.</p>
-                                <blockquote>
-                                    <p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p>
-                                </blockquote>
-                                <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor</p>
-                                <!--  tags share-->
-                                <div class="fl-wrap">
-                                    <div class="single-post-tags fl-left">
-                                        <i class="fa fa-tags"></i>
-                                        <a href="post-single.html#" >Adventure</a>
-                                        <a href="post-single.html#">Happy</a>
-                                        <a href="post-single.html#">Lifestyle</a>
-                                        <a href="post-single.html#">Travel</a>
-                                    </div>
-                                    <div class="share-button">Share<i class="fa fa-bullhorn"></i></div>
-                                    <div class="share-inner">
-                                        <div class="share-container"  data-share="['facebook','pinterest','googleplus','twitter','linkedin']"></div>
-                                    </div>
+                        </div>
+                        <!--  blog media end -->
+                        <div class="single-article-inner">
+                            <p>{{ post.content }}</p>
+                            <!--  tags share-->
+                            <div class="fl-wrap">
+                                <div class="single-post-tags fl-left">
+                                    <i class="fa fa-tags"></i>
+                                    <a href="post-single.html#" >Adventure</a>
+                                    <a href="post-single.html#">Happy</a>
+                                    <a href="post-single.html#">Lifestyle</a>
+                                    <a href="post-single.html#">Travel</a>
                                 </div>
-                                <!--  tags share end -->
-                                <!-- facts -->
-                                <div class="art-facts">
-                                    <ul class="post-counter">
-                                        <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
-                                        <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
-                                        <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
-                                    </ul>
+                                <div class="share-button">Share<i class="fa fa-bullhorn"></i></div>
+                                <div class="share-inner">
+                                    <div class="share-container"  data-share="['facebook','pinterest','googleplus','twitter','linkedin']"></div>
                                 </div>
-                                <!-- facts end -->
-                                <div class="limit-box"></div>
                             </div>
-                        </article>
-                        <!-- article end -->
-                        <!--author -->
-                        <div class="post-author">
-                            <div class="post-author-wrap">
-                                <div class="post-author-img">
-                                    <img src="images/author.jpg" alt="">
-                                </div>
-                                <span>Written By</span>
-                                <h3><a href="post-single.html#">Matthew   Kowalsky</a></h3>
-                                <p>Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. </p>
-                                <ul>
-                                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
+                            <!--  tags share end -->
+                            <!-- facts -->
+                            <div class="art-facts">
+                                <ul class="post-counter">
+                                    <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
+                                    <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
+                                    <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
                                 </ul>
                             </div>
+                            <!-- facts end -->
+                            <div class="limit-box"></div>
                         </div>
-                        <!--author end-->
-                        <h3 class="middle-title"> YOU MIGHT ALSO LIKE </h3>
-                        <!-- post-related -->
-                        <div class="post-related   row">
-                            <!-- 1  -->
-                            <div class="item-related col-md-4">
-                                <a href="post-single.html#"><img src="images/article/big/1.jpg"   alt=""></a>
-                                <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
-                                <span class="post-date">25 may 2016</span>
+                    </article>
+                    <!-- article end -->
+                    <!--author -->
+                    <div class="post-author">
+                        <div class="post-author-wrap">
+                            <div class="post-author-img">
+                                <img src="{% static 'images/author.jpg' %}" alt="">
                             </div>
-                            <!-- 1 end-->
-                            <!-- 2  -->
-                            <div class="item-related col-md-4">
-                                <a href="post-single.html#"><img src="images/article/big/2.jpg"   alt=""></a>
-                                <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
-                                <span class="post-date">25 may 2016</span>
-                            </div>
-                            <!-- 2 end-->
-                            <!-- 3  -->
-                            <div class="item-related col-md-4">
-                                <a href="post-single.html#"><img src="images/article/big/3.jpg"   alt=""></a>
-                                <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
-                                <span class="post-date">25 may 2016</span>
-                            </div>
-                            <!-- 3 end-->
-                        </div>
-                        <!-- post-related  end-->
-                        <!-- commens -->
-                        <div class="post-comments" id="comments">
-                            <h3 class="middle-title"> 3 Comments</h3>
-                            <ul class='comments'>
-                                <li class="comment">
-                                    <div class="thecomment">
-                                        <div class="author-img">
-                                            <img  src='images/author.jpg'  alt="">
-                                        </div>
-                                        <div class="comment-text">
-                                            <span class="author">Matthew  Kowalsky</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-                                            <span class="date">August 23, 2016 at 11:41 am</span>
-                                            <span class="reply">
-                                            <a  class='comment-reply-link' href='post-single.html#' >Reply</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="comment children">
-                                    <div class="thecomment">
-                                        <div class="author-img">
-                                            <img  src='images/author2.jpg'  alt="">
-                                        </div>
-                                        <div class="comment-text">
-                                            <span class="author">Jane Kowalski</span>
-                                            <p>Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor.</p>
-                                            <span class="date">August 13, 2015 at 11:41 am</span>
-                                            <span class="reply">
-                                            <a  class='comment-reply-link' href='post-single.html#' >Reply</a>										</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- #comment-## -->
-                                <li class="comment">
-                                    <div class="thecomment">
-                                        <div class="author-img">
-                                            <img  src='images/author.jpg'  alt="">
-                                        </div>
-                                        <div class="comment-text">
-                                            <span class="author">Matthew  Kowalsky</span>
-                                            <p>At one extremity the rope was unstranded, and the separate spread yarns were all braided and woven round the socket of the harpoon; the pole was then driven hard up into the socket</p>
-                                            <span class="date">August 13, 2015 at 11:42 am</span>
-                                            <span class="reply">
-                                            <a  class='comment-reply-link' href='post-single.html#' >Reply</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- #comment-## -->
+                            <span>Written By</span>
+                            <h3><a href="post-single.html#">Matthew   Kowalsky</a></h3>
+                            <p>Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. </p>
+                            <ul>
+                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
                             </ul>
-                            <!-- comment form -->
-                            <div id="respond" class="comment-respond">
-                                <h3 id="reply-title" class="comment-reply-title">Leave a Reply  </h3>
-                                <form id="commentform" class="comment-form">
-                                    <p class="comment-form-comment">
-                                        <textarea id="comment" name="comment"></textarea>
-                                    </p>
-                                    <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label>
-                                        <input  name="author" type="text" value=""/>
-                                    </p>
-                                    <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value=""  /></p>
-                                    <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value=""  /></p>
-                                    <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> </p>
+                        </div>
+                    </div>
+                    <!--author end-->
+                    <h3 class="middle-title"> YOU MIGHT ALSO LIKE </h3>
+                    <!-- post-related -->
+                    <div class="post-related   row">
+                        <!-- 1  -->
+                        <div class="item-related col-md-4">
+                            <a href="post-single.html#"><img src="{% static 'images/article/big/1.jpg' %}"   alt=""></a>
+                            <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
+                            <span class="post-date">25 may 2016</span>
+                        </div>
+                        <!-- 1 end-->
+                        <!-- 2  -->
+                        <div class="item-related col-md-4">
+                            <a href="post-single.html#"><img src="{% static 'images/article/big/2.jpg' %}"   alt=""></a>
+                            <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
+                            <span class="post-date">25 may 2016</span>
+                        </div>
+                        <!-- 2 end-->
+                        <!-- 3  -->
+                        <div class="item-related col-md-4">
+                            <a href="post-single.html#"><img src="{% static 'images/article/big/3.jpg' %}"   alt=""></a>
+                            <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
+                            <span class="post-date">25 may 2016</span>
+                        </div>
+                        <!-- 3 end-->
+                    </div>
+                    <!-- post-related  end-->
+                    <!-- comments -->
+                    <div class="post-comments" id="comments">
+                        <h3 class="middle-title"> 3 Comments</h3>
+                        <ul class='comments'>
+                            <li class="comment">
+                                <div class="thecomment">
+                                    <div class="author-img">
+                                        <img  src="{% static 'images/author.jpg' %}"  alt="">
+                                    </div>
+                                    <div class="comment-text">
+                                        <span class="author">Matthew  Kowalsky</span>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                                        <span class="date">August 23, 2016 at 11:41 am</span>
+                                        <span class="reply">
+                                        <a  class='comment-reply-link' href='post-single.html#' >Reply</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment children">
+                                <div class="thecomment">
+                                    <div class="author-img">
+                                        <img  src="{% static 'images/author2.jpg' %}"  alt="">
+                                    </div>
+                                    <div class="comment-text">
+                                        <span class="author">Jane Kowalski</span>
+                                        <p>Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor.</p>
+                                        <span class="date">August 13, 2015 at 11:41 am</span>
+                                        <span class="reply">
+                                        <a  class='comment-reply-link' href='post-single.html#' >Reply</a>										</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- #comment-## -->
+                            <li class="comment">
+                                <div class="thecomment">
+                                    <div class="author-img">
+                                        <img  src="{% static 'images/author.jpg' %}" alt="">
+                                    </div>
+                                    <div class="comment-text">
+                                        <span class="author">Matthew  Kowalsky</span>
+                                        <p>At one extremity the rope was unstranded, and the separate spread yarns were all braided and woven round the socket of the harpoon; the pole was then driven hard up into the socket</p>
+                                        <span class="date">August 13, 2015 at 11:42 am</span>
+                                        <span class="reply">
+                                        <a  class='comment-reply-link' href='post-single.html#' >Reply</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- #comment-## -->
+                        </ul>
+                        <!-- comment form -->
+                        <div id="respond" class="comment-respond">
+                            <h3 id="reply-title" class="comment-reply-title">Leave a Reply  </h3>
+                            <form id="commentform" class="comment-form">
+                                <p class="comment-form-comment">
+                                    <textarea id="comment" name="comment"></textarea>
+                                </p>
+                                <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label>
+                                    <input  name="author" type="text" value=""/>
+                                </p>
+                                <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value=""  /></p>
+                                <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value=""  /></p>
+                                <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> </p>
+                            </form>
+                        </div>
+                        <!-- #respond -->
+                    </div>
+                    <!-- end comments div -->
+                </div>
+                <!-- article-wrap end -->
+                <!-- main-sidebar -->
+                <div class="main-sidebar">
+                    <div class="main-sidebar-widgets">
+                        <!-- main-sidebar-widget-->
+                        <div class="main-sidebar-widget">
+                            <h3>About Me</h3>
+                            <div class="about-widget">
+                                <img src="{% static 'images/about-sb.jpg' %}" alt="">
+                                <h4>Photographer  & Blogger</h4>
+                                <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue.  </p>
+                                <div class="signature"><img src="{% static 'images/signature2.png' %}" alt=""></div>
+                            </div>
+                        </div>
+                        <!-- main-sidebar-widget end-->
+                        <!-- main-sidebar-widget-->
+                        <div class="main-sidebar-widget">
+                            <h3>Subscribe</h3>
+                            <div class="subscribe-widget">
+                                <form   class="mc4wp-form" method="post">
+                                    <input type="email"   class="mc4wp_email" name="EMAIL" placeholder="Your email address" required>
+                                    <input type="submit" class="mc4wp_submit" value="Send">
                                 </form>
                             </div>
-                            <!-- #respond -->
                         </div>
-                        <!-- end comments div -->
-                    </div>
-                    <!-- article-wrap end -->
-                    <!-- main-sidebar -->
-                    <div class="main-sidebar">
-                        <div class="main-sidebar-widgets">
-                            <!-- main-sidebar-widget-->
-                            <div class="main-sidebar-widget">
-                                <h3>About Me</h3>
-                                <div class="about-widget">
-                                    <img src="images/about-sb.jpg" alt="">
-                                    <h4>Photographer  & Blogger</h4>
-                                    <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue.  </p>
-                                    <div class="signature"><img src="images/signature2.png" alt=""></div>
-                                </div>
-                            </div>
-                            <!-- main-sidebar-widget end-->
-                            <!-- main-sidebar-widget-->
-                            <div class="main-sidebar-widget">
-                                <h3>Subscribe</h3>
-                                <div class="subscribe-widget">
-                                    <form   class="mc4wp-form" method="post">
-                                        <input type="email"   class="mc4wp_email" name="EMAIL" placeholder="Your email address" required>
-                                        <input type="submit" class="mc4wp_submit" value="Send">
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- main-sidebar-widget end-->
-                            <!-- main-sidebar-widget-->
-                            <div class="main-sidebar-widget">
-                                <h3>Recent Posts</h3>
-                                <div class="recent-post-widget">
-                                    <ul>
-                                        <li>
-                                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/4.jpg" alt=""></a></div>
-                                            <div class="recent-post-content">
-                                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                                <div class="recent-post-opt">
-                                                    <span class="post-date">3 May 2016</span>
-                                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                                </div>
+                        <!-- main-sidebar-widget end-->
+                        <!-- main-sidebar-widget-->
+                        <div class="main-sidebar-widget">
+                            <h3>Recent Posts</h3>
+                            <div class="recent-post-widget">
+                                <ul>
+                                    <li>
+                                        <div class="recent-post-img"><a href="post-single.html#"><img src="{% static 'images/instagram/4.jpg' %}" alt=""></a></div>
+                                        <div class="recent-post-content">
+                                            <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
+                                            <div class="recent-post-opt">
+                                                <span class="post-date">3 May 2016</span>
+                                                <a href="post-single.html#" class="post-comments">0 Comments</a>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/5.jpg" alt=""></a></div>
-                                            <div class="recent-post-content">
-                                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                                <div class="recent-post-opt">
-                                                    <span class="post-date">3 May 2016</span>
-                                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                                </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="recent-post-img"><a href="post-single.html#"><img src="{% static 'images/instagram/5.jpg' %}" alt=""></a></div>
+                                        <div class="recent-post-content">
+                                            <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
+                                            <div class="recent-post-opt">
+                                                <span class="post-date">3 May 2016</span>
+                                                <a href="post-single.html#" class="post-comments">0 Comments</a>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/6.jpg" alt=""></a></div>
-                                            <div class="recent-post-content">
-                                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                                <div class="recent-post-opt">
-                                                    <span class="post-date">3 May 2016</span>
-                                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                                </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="recent-post-img"><a href="post-single.html#"><img src="{% static 'images/instagram/6.jpg' %}" alt=""></a></div>
+                                        <div class="recent-post-content">
+                                            <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
+                                            <div class="recent-post-opt">
+                                                <span class="post-date">3 May 2016</span>
+                                                <a href="post-single.html#" class="post-comments">0 Comments</a>
                                             </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- main-sidebar-widget end-->
-                            <!-- main-sidebar-widget-->
-                            <div class="main-sidebar-widget">
-                                <h3>Resent tags </h3>
-                                <div class="tags-widget">
-                                    <div class="tagcloud">
-                                        <a href="post-single.html#">Lifystyle</a>
-                                        <a href="post-single.html#">Travel</a>
-                                        <a href="post-single.html#">Trip</a>
-                                        <a href="post-single.html#">Outdoor</a>
-                                        <a href="post-single.html#">Camping</a>
-                                        <a href="post-single.html#">Photo</a>
-                                        <a href="post-single.html#">Adventure</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- main-sidebar-widget end-->
-                            <!-- main-sidebar-widget end-->
-                            <!-- main-sidebar-widget-->
-                            <div class="main-sidebar-widget">
-                                <h3>My instagram</h3>
-                                <div class="instagram-widget">
-                                    <div class='jr-insta-thumb'>
-                                        <ul>
-                                            <li>
-                                                <a href="post-single.html#"><img src="images/instagram/1.jpg" alt=""></a>
-                                            </li>
-                                            <li>
-                                                <a href="post-single.html#"><img src="images/instagram/2.jpg" alt=""></a>
-                                            </li>
-                                            <li>
-                                                <a href="post-single.html#"><img src="images/instagram/3.jpg" alt=""></a>
-                                            </li>
-                                            <li>
-                                                <a href="post-single.html#"><img src="images/instagram/4.jpg" alt=""></a>
-                                            </li>
-                                            <li>
-                                                <a href="post-single.html#"><img src="images/instagram/5.jpg" alt=""></a>
-                                            </li>
-                                            <li>
-                                                <a href="post-single.html#"><img src="images/instagram/6.jpg" alt=""></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- main-sidebar-widget end-->
-                            <!-- main-sidebar-widget-->
-                            <div class="main-sidebar-widget">
-                                <h3>Banner widget</h3>
-                                <div class="banner-widget">
-                                    <img src="images/banner.jpg" alt="">
-                                </div>
-                            </div>
-                            <!-- main-sidebar-widget end-->
-                            <!-- main-sidebar-widget-->
-                            <div class="main-sidebar-widget">
-                                <h3>Categories</h3>
-                                <div class="category-widget">
-                                    <ul class="cat-item">
-                                        <li><a href="post-single.html#">Lifystyle</a>(12)</li>
-                                        <li><a href="post-single.html#">Outdoor</a>(22)</li>
-                                        <li><a href="post-single.html#">Camping</a>(10)</li>
-                                        <li><a href="post-single.html#">Travel</a>(4)</li>
-                                        <li><a href="post-single.html#">Adventure</a>(5)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- main-sidebar-widget end-->
-                            <!-- main-sidebar-widget-->
-                            <div class="main-sidebar-widget">
-                                <h3>Social widget</h3>
-                                <div class=" social-widget">
-                                    <ul>
-                                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
-                                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- main-sidebar-widget end-->
-                        </div>
-                    </div>
-                    <!-- main-sidebar end-->
-                </div>
-                <!-- article-holder  end-->
-            </div>
-        </div>
-        <!--  Subscribe  -->
-        <div class="subscribe-wrap fw-wrap">
-            <div class="bg"  data-bg="images/dec/1.jpg"></div>
-            <div class="container">
-                <h3 class="content-title">Subscribe</h3>
-                <span class="separator gray-separator small-separator no-align-separator"></span>
-                <p class="notify-sub">Get the lastest news and updates from SpringBook</p>
-                <form  class="mc4wp-form" method="post">
-                    <input type="email"  class="mc4wp_email" name="EMAIL" placeholder="Your email address" required>
-                    <input type="submit" class="mc4wp_submit" value="Subscribe On Updates">
-                </form>
-            </div>
-        </div>
-        <!--  Subscribe end-->
-        <!--  Footer-->
-        <footer class="footer-big">
-            <div class="container">
-                <div class="footer-widgets-holder">
-                    <div class="footer-widgets">
-                        <div class="footer-widget-inner fwinner">
-                            <div class="quote-widget">
-                                <h3>Quote widget</h3>
-                                <p>" Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc. "</p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="footer-widget-inner">
-                            <div class="footer-widget">
-                                <h3>Recent   posts</h3>
-                                <div class="recent-post-widget">
-                                    <ul>
-                                        <li>
-                                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/1.jpg" alt=""></a></div>
-                                            <div class="recent-post-content">
-                                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                                <div class="recent-post-opt">
-                                                    <span class="post-date">3 May 2016</span>
-                                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/2.jpg" alt=""></a></div>
-                                            <div class="recent-post-content">
-                                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                                <div class="recent-post-opt">
-                                                    <span class="post-date">3 May 2016</span>
-                                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/3.jpg" alt=""></a></div>
-                                            <div class="recent-post-content">
-                                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                                <div class="recent-post-opt">
-                                                    <span class="post-date">3 May 2016</span>
-                                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                        <!-- main-sidebar-widget end-->
+                        <!-- main-sidebar-widget-->
+                        <div class="main-sidebar-widget">
+                            <h3>Resent tags </h3>
+                            <div class="tags-widget">
+                                <div class="tagcloud">
+                                    <a href="post-single.html#">Lifystyle</a>
+                                    <a href="post-single.html#">Travel</a>
+                                    <a href="post-single.html#">Trip</a>
+                                    <a href="post-single.html#">Outdoor</a>
+                                    <a href="post-single.html#">Camping</a>
+                                    <a href="post-single.html#">Photo</a>
+                                    <a href="post-single.html#">Adventure</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="footer-widget-inner">
-                            <div class="footer-widget">
-                                <h3>Last comments</h3>
-                                <div class="comment-widget">
-                                    <ul class="comm-list">
-                                        <li>
-                                            <span class="comm-date">17 may 2016</span>
-                                            <p>At tincidunt erat hendrerit. Vestibulum ultrices ipsum id  </p>
-                                            <div class="commnet-link">By Markus on  <a href="post-single.html#" class="comment-link">Post with slider</a> </div>
-                                        </li>
-                                        <li>
-                                            <span class="comm-date">17 may 2016</span>
-                                            <p>Tincidunt erat hendrerit. Vestibulum ultrices ipsum  </p>
-                                            <div class="commnet-link">By Markus on  <a href="post-single.html#" class="comment-link">Post with slider</a> </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer-widget-inner">
-                            <div class="footer-widget">
-                                <h3>Our instagram</h3>
+                        <!-- main-sidebar-widget end-->
+                        <!-- main-sidebar-widget end-->
+                        <!-- main-sidebar-widget-->
+                        <div class="main-sidebar-widget">
+                            <h3>My instagram</h3>
+                            <div class="instagram-widget">
                                 <div class='jr-insta-thumb'>
                                     <ul>
                                         <li>
@@ -608,274 +313,293 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="sub-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="copyright">
-                                <span>© Spring book 2016 .</span>			All rights reserved
+                        <!-- main-sidebar-widget end-->
+                        <!-- main-sidebar-widget-->
+                        <div class="main-sidebar-widget">
+                            <h3>Banner widget</h3>
+                            <div class="banner-widget">
+                                <img src="images/banner.jpg" alt="">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <ul class="sub-footer-social">
-                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
-                            </ul>
+                        <!-- main-sidebar-widget end-->
+                        <!-- main-sidebar-widget-->
+                        <div class="main-sidebar-widget">
+                            <h3>Categories</h3>
+                            <div class="category-widget">
+                                <ul class="cat-item">
+                                    <li><a href="post-single.html#">Lifystyle</a>(12)</li>
+                                    <li><a href="post-single.html#">Outdoor</a>(22)</li>
+                                    <li><a href="post-single.html#">Camping</a>(10)</li>
+                                    <li><a href="post-single.html#">Travel</a>(4)</li>
+                                    <li><a href="post-single.html#">Adventure</a>(5)</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!--fixed-sidebar  -->
-        <div class="fixed-sidebar dark-sidebar">
-            <div class="close-sibedar-holder">
-                <div class="close-sibedar"></div>
-            </div>
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <form class="searchform" method="get" >
-                    <input type="text" autocomplete="off"   name="s" placeholder="Type and Enter to Search">
-                    <i class="fa fa-search"></i>
-                </form>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>About me</h3>
-                <div class="sidebar-widget about-widget">
-                    <img src="images/about-sb.jpg" alt="">
-                    <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo .  </p>
-                    <div class="signature"><img src="images/signature.png" alt=""></div>
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Subscribe</h3>
-                <div class="sidebar-widget subscribe-widget">
-                    <form   class="mc4wp-form" method="post">
-                        <input type="email"   class="mc4wp_email" name="EMAIL" placeholder="Your email address" required>
-                        <input type="submit" class="mc4wp_submit" value="Send">
-                    </form>
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Menu widget</h3>
-                <div class="sidebar-widget">
-                    <div id="hid-men">
-                        <ul class="menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="../../../../Frontends/travel_blog/travel_blog/about.html">About</a></li>
-                            <li>
-                                <i class="fa fa-caret-right"></i>
-                                <a href="post-single.html#">Pages</a>
+                        <!-- main-sidebar-widget end-->
+                        <!-- main-sidebar-widget-->
+                        <div class="main-sidebar-widget">
+                            <h3>Social widget</h3>
+                            <div class=" social-widget">
                                 <ul>
-                                    <li><a href="post-single.html#">Lifystyle</a>(12)</li>
-                                    <li><a href="post-single.html#">Outdoor</a>(22)</li>
-                                    <li><a href="post-single.html#">Camping</a>(10)</li>
-                                    <li><a href="post-single.html#">Travel</a>(4)</li>
-                                    <li><a href="post-single.html#">Adventure</a>(5)</li>
+                                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
                                 </ul>
-                            </li>
-                            <li>
-                                <i class="fa fa-caret-right"></i>
-                                <a href="post-single.html#">Category</a>
-                                <ul>
-                                    <li><a href="post-single.html#">Lifystyle</a>(12)</li>
-                                    <li><a href="post-single.html#">Outdoor</a>(22)</li>
-                                    <li><a href="post-single.html#">Camping</a>(10)</li>
-                                    <li><a href="post-single.html#">Travel</a>(4)</li>
-                                    <li><a href="post-single.html#">Adventure</a>(5)</li>
-                                </ul>
-                            </li>
-                            <li><a href="index.html">Contact</a></li>
-                            <li><a href="index.html">Features</a></li>
-                        </ul>
+                            </div>
+                        </div>
+                        <!-- main-sidebar-widget end-->
                     </div>
                 </div>
+                <!-- main-sidebar end-->
             </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Recent Posts</h3>
-                <div class="sidebar-widget resent-post-widget">
-                    <div class="recent-post-widget">
-                        <ul>
-                            <li>
-                                <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/1.jpg" alt=""></a></div>
-                                <div class="recent-post-content">
-                                    <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                    <div class="recent-post-opt">
-                                        <span class="post-date">3 May 2016</span>
-                                        <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/2.jpg" alt=""></a></div>
-                                <div class="recent-post-content">
-                                    <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                    <div class="recent-post-opt">
-                                        <span class="post-date">3 May 2016</span>
-                                        <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/3.jpg" alt=""></a></div>
-                                <div class="recent-post-content">
-                                    <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
-                                    <div class="recent-post-opt">
-                                        <span class="post-date">3 May 2016</span>
-                                        <a href="post-single.html#" class="post-comments">0 Comments</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Resent tags </h3>
-                <div class="sidebar-widget tags-widget">
-                    <div class="tagcloud">
-                        <a href="post-single.html#">Lifystyle</a>
-                        <a href="post-single.html#">Travel</a>
-                        <a href="post-single.html#">Trip</a>
-                        <a href="post-single.html#">Outdoor</a>
-                        <a href="post-single.html#">Camping</a>
-                        <a href="post-single.html#">Photo</a>
-                        <a href="post-single.html#">Adventure</a>
-                    </div>
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Banner widget</h3>
-                <div class="banner-widget">
-                    <img src="images/banner.jpg" alt="">
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Categories</h3>
-                <div class="sidebar-widget category-widget">
-                    <ul class="cat-item">
-                        <li><a href="post-single.html#">Lifystyle</a>(12)</li>
-                        <li><a href="post-single.html#">Outdoor</a>(22)</li>
-                        <li><a href="post-single.html#">Camping</a>(10)</li>
-                        <li><a href="post-single.html#">Travel</a>(4)</li>
-                        <li><a href="post-single.html#">Adventure</a>(5)</li>
-                    </ul>
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Our Instagram </h3>
-                <div class="sidebar-widget instagram-widget">
-                    <div class='jr-insta-thumb'>
-                        <ul>
-                            <li>
-                                <a href="post-single.html#"><img src="images/instagram/1.jpg" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="post-single.html#"><img src="images/instagram/2.jpg" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="post-single.html#"><img src="images/instagram/3.jpg" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="post-single.html#"><img src="images/instagram/4.jpg" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="post-single.html#"><img src="images/instagram/5.jpg" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="post-single.html#"><img src="images/instagram/6.jpg" alt=""></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Last comments</h3>
-                <div class="sidebar-widget">
-                    <div class="comment-widget">
-                        <ul class="comm-list">
-                            <li>
-                                <span class="comm-date">17 may 2016</span>
-                                <p>At tincidunt erat hendrerit. Vestibulum ultrices ipsum id  </p>
-                                <div class="commnet-link">By Markus on  <a href="post-single.html#" class="comment-link">Post with slider</a> </div>
-                            </li>
-                            <li>
-                                <span class="comm-date">17 may 2016</span>
-                                <p>Tincidunt erat hendrerit. Vestibulum ultrices ipsum  </p>
-                                <div class="commnet-link">By Markus on  <a href="post-single.html#" class="comment-link">Post with slider</a> </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <!--fixed-sidebar-widget -->
-            <div class="fixed-sidebar-widget">
-                <h3>Social widget</h3>
-                <div class="sidebar-widget social-widget">
-                    <ul>
-                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!--fixed-sidebar-widget end  -->
-            <div class="sb-to-top-holder">
-                <div class="sb-to-top"><i class="fa fa-angle-double-up"></i></div>
-            </div>
-        </div>
-        <div class="search-form-holder fixed-search">
-            <div class="search-form-bg"></div>
-            <div class="search-form-wrap">
-                <div class="container">
-                    <form class="searchform" method="get"  >
-                        <input type="text" autocomplete="off"   name="s" placeholder="Type and Enter to Search">
-                    </form>
-                    <div class="close-fixed-search"></div>
-                </div>
-                <div class="dublicated-text"></div>
-            </div>
-        </div>
-        <!--fixed-sidebar  end-->
-        <div class="sb-overlay"></div>
-        <!--to top    -->
-        <div class="to-top">
-            <i class="fa fa-angle-double-up"></i>
-        </div>
-        <!-- to top  end -->
-        <div class="fixed-icons">
-            <ul>
-                <li><a href="../../../../Frontends/travel_blog/travel_blog/contact.html"><i class="fa fa-envelope-o"></i></a><span>Write me</span></li>
-                <li><a href="../../../../Frontends/travel_blog/travel_blog/contact.html"><i class="fa fa-shopping-cart"></i></a><span>Purchase Theme</span></li>
-            </ul>
+            <!-- article-holder  end-->
         </div>
     </div>
-    <!--Main  end -->
-</body>
+    <!--fixed-sidebar  -->
+    <div class="fixed-sidebar dark-sidebar">
+        <div class="close-sibedar-holder">
+            <div class="close-sibedar"></div>
+        </div>
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <form class="searchform" method="get" >
+                <input type="text" autocomplete="off"   name="s" placeholder="Type and Enter to Search">
+                <i class="fa fa-search"></i>
+            </form>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>About me</h3>
+            <div class="sidebar-widget about-widget">
+                <img src="images/about-sb.jpg" alt="">
+                <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo .  </p>
+                <div class="signature"><img src="images/signature.png" alt=""></div>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Subscribe</h3>
+            <div class="sidebar-widget subscribe-widget">
+                <form   class="mc4wp-form" method="post">
+                    <input type="email"   class="mc4wp_email" name="EMAIL" placeholder="Your email address" required>
+                    <input type="submit" class="mc4wp_submit" value="Send">
+                </form>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Menu widget</h3>
+            <div class="sidebar-widget">
+                <div id="hid-men">
+                    <ul class="menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="../../../../Frontends/travel_blog/travel_blog/about.html">About</a></li>
+                        <li>
+                            <i class="fa fa-caret-right"></i>
+                            <a href="post-single.html#">Pages</a>
+                            <ul>
+                                <li><a href="post-single.html#">Lifystyle</a>(12)</li>
+                                <li><a href="post-single.html#">Outdoor</a>(22)</li>
+                                <li><a href="post-single.html#">Camping</a>(10)</li>
+                                <li><a href="post-single.html#">Travel</a>(4)</li>
+                                <li><a href="post-single.html#">Adventure</a>(5)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <i class="fa fa-caret-right"></i>
+                            <a href="post-single.html#">Category</a>
+                            <ul>
+                                <li><a href="post-single.html#">Lifystyle</a>(12)</li>
+                                <li><a href="post-single.html#">Outdoor</a>(22)</li>
+                                <li><a href="post-single.html#">Camping</a>(10)</li>
+                                <li><a href="post-single.html#">Travel</a>(4)</li>
+                                <li><a href="post-single.html#">Adventure</a>(5)</li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html">Contact</a></li>
+                        <li><a href="index.html">Features</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Recent Posts</h3>
+            <div class="sidebar-widget resent-post-widget">
+                <div class="recent-post-widget">
+                    <ul>
+                        <li>
+                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/1.jpg" alt=""></a></div>
+                            <div class="recent-post-content">
+                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
+                                <div class="recent-post-opt">
+                                    <span class="post-date">3 May 2016</span>
+                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/2.jpg" alt=""></a></div>
+                            <div class="recent-post-content">
+                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
+                                <div class="recent-post-opt">
+                                    <span class="post-date">3 May 2016</span>
+                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="recent-post-img"><a href="post-single.html#"><img src="images/instagram/3.jpg" alt=""></a></div>
+                            <div class="recent-post-content">
+                                <h4><a href="post-single.html#">Snowy Mountains Trip</a></h4>
+                                <div class="recent-post-opt">
+                                    <span class="post-date">3 May 2016</span>
+                                    <a href="post-single.html#" class="post-comments">0 Comments</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Resent tags </h3>
+            <div class="sidebar-widget tags-widget">
+                <div class="tagcloud">
+                    <a href="post-single.html#">Lifystyle</a>
+                    <a href="post-single.html#">Travel</a>
+                    <a href="post-single.html#">Trip</a>
+                    <a href="post-single.html#">Outdoor</a>
+                    <a href="post-single.html#">Camping</a>
+                    <a href="post-single.html#">Photo</a>
+                    <a href="post-single.html#">Adventure</a>
+                </div>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Banner widget</h3>
+            <div class="banner-widget">
+                <img src="images/banner.jpg" alt="">
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Categories</h3>
+            <div class="sidebar-widget category-widget">
+                <ul class="cat-item">
+                    <li><a href="post-single.html#">Lifystyle</a>(12)</li>
+                    <li><a href="post-single.html#">Outdoor</a>(22)</li>
+                    <li><a href="post-single.html#">Camping</a>(10)</li>
+                    <li><a href="post-single.html#">Travel</a>(4)</li>
+                    <li><a href="post-single.html#">Adventure</a>(5)</li>
+                </ul>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Our Instagram </h3>
+            <div class="sidebar-widget instagram-widget">
+                <div class='jr-insta-thumb'>
+                    <ul>
+                        <li>
+                            <a href="post-single.html#"><img src="images/instagram/1.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="post-single.html#"><img src="images/instagram/2.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="post-single.html#"><img src="images/instagram/3.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="post-single.html#"><img src="images/instagram/4.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="post-single.html#"><img src="images/instagram/5.jpg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="post-single.html#"><img src="images/instagram/6.jpg" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Last comments</h3>
+            <div class="sidebar-widget">
+                <div class="comment-widget">
+                    <ul class="comm-list">
+                        <li>
+                            <span class="comm-date">17 may 2016</span>
+                            <p>At tincidunt erat hendrerit. Vestibulum ultrices ipsum id  </p>
+                            <div class="commnet-link">By Markus on  <a href="post-single.html#" class="comment-link">Post with slider</a> </div>
+                        </li>
+                        <li>
+                            <span class="comm-date">17 may 2016</span>
+                            <p>Tincidunt erat hendrerit. Vestibulum ultrices ipsum  </p>
+                            <div class="commnet-link">By Markus on  <a href="post-single.html#" class="comment-link">Post with slider</a> </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <!--fixed-sidebar-widget -->
+        <div class="fixed-sidebar-widget">
+            <h3>Social widget</h3>
+            <div class="sidebar-widget social-widget">
+                <ul>
+                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--fixed-sidebar-widget end  -->
+        <div class="sb-to-top-holder">
+            <div class="sb-to-top"><i class="fa fa-angle-double-up"></i></div>
+        </div>
+    </div>
+    <div class="search-form-holder fixed-search">
+        <div class="search-form-bg"></div>
+        <div class="search-form-wrap">
+            <div class="container">
+                <form class="searchform" method="get"  >
+                    <input type="text" autocomplete="off"   name="s" placeholder="Type and Enter to Search">
+                </form>
+                <div class="close-fixed-search"></div>
+            </div>
+            <div class="dublicated-text"></div>
+        </div>
+    </div>
+    <!--fixed-sidebar  end-->
+    <div class="sb-overlay"></div>
+    <!--to top    -->
+    <div class="to-top">
+        <i class="fa fa-angle-double-up"></i>
+    </div>
+    <!-- to top  end -->
+    <div class="fixed-icons">
+        <ul>
+            <li><a href="../../../../Frontends/travel_blog/travel_blog/contact.html"><i class="fa fa-envelope-o"></i></a><span>Write me</span></li>
+            <li><a href="../../../../Frontends/travel_blog/travel_blog/contact.html"><i class="fa fa-shopping-cart"></i></a><span>Purchase Theme</span></li>
+        </ul>
+    </div>
+</div>
+<!--Main  end -->
 {% endblock %}

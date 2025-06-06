@@ -1,12 +1,13 @@
-from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.db import models
+
 from .user_manager import UserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(unique=True, verbose_name="email")
-    name = models.CharField(max_length=150, blank=True, verbose_name="Name")
-    role = models.CharField(max_length=10, default="user", verbose_name="Role")
+    email = models.EmailField(unique=True, verbose_name='email')
+    name = models.CharField(max_length=150, blank=True, verbose_name='Name')
+    role = models.CharField(max_length=10, default='user', verbose_name='Role')
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -14,19 +15,20 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    USERNAME_FIELD = "email"
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(
-        User, related_name='user', on_delete=models.CASCADE
-    )
+    user = models.OneToOneField(User, related_name='user', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=100)
     date_of_birth = models.DateField(
         verbose_name='Date of Birth', null=True, blank=True
     )
+
+    nickname = models.CharField(max_length=50, blank=True, null=True)
+    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
 
     @property
     def email(self) -> str:

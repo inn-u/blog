@@ -16,12 +16,14 @@
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
   </head>
   <body>
+
     <div id="main">
-<!--      {% include "partials/header.html" %}-->
+       {% include "partials/header.html" %}
       <div id="wrapper">
         {% block content %}{% endblock %}
+        <span class="separator gray-separator small-separator no-align-separator"></span>
       </div>
-<!--      {% include "partials/footer.html" %}-->
+      {% include "partials/footer.html" %}
     </div>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/plugins.js' %}"></script>

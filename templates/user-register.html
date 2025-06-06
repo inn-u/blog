@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+ <h1>{{ title }}</h1>
+
+<div class="container">
+   <h2>Register</h2>
+    <span class="separator gray-separator small-separator no-align-separator"></span>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+    <button type="submit" class="wpcf7-submit">Register</button>
+        <button type="button" class="wpcf7-submit" onclick="location.href='/login'">Login</button>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

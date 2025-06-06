@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<h2>Account</h2>
+
+<h3>Welcome, {{ user }}!</h3>
+
+<div class="container">
+  {% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}" alt="Avatar" width="150" height="150" style="border-radius: 50%;">
+  {% else %}
+    <p>No avatar uploaded</p>
+  {% endif %}
+
+  <button type="submit"><a href="{% url 'edit-profile' %}">Edit Profile</a></button>
+
+  {% if user.is_authenticated %}
+  <form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-danger">
+      <i class="bi bi-box-arrow-right"></i> Logout
+    </button>
+  </form>
+</div>
+{% endif %}
+
+{% endblock %}
