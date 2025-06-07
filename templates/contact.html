@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+{% load static %}
+ <h1>{{ title }}</h1>
+{% block content %}
+<div class="container">
+    <div class="article-holder">
+        <!-- article-wrap-->
+        <div class="article-wrap col-wrap">
+            <!-- article-holder -->
+            <article class="single-article">
+                <!--  article title -->
+                <h2 class="single-article-title fl-wrap"> <a href="contact.html#">Contact me</a></h2>
+                <!--  article titleend -->
+                <div class="clearfix"></div>
+                <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
+                <!--  blog media-->
+                <div class="blog-media">
+                    <img src="{% static 'images/article/big/1.jpg' %}" class="respimg" alt="">
+                </div>
+                <!--  blog media end -->
+                <div class=" fl-wrap">
+                    <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. <strong>Sed do.Lorem ipsum dolor sit amet, consectetur</strong> Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor . Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor</p>
+                    <h3 align="left" style="padding:0 0 15px">Write me  Message</h3>
+                    <div class="wpcf7">
+                        <form method="post" class="wpcf7-form">
+                            <p>Your Name (required)<br>
+                                <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"></span>
+                            </p>
+                            <p>Your Email (required)<br>
+                                <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"></span>
+                            </p>
+                            <p>Subject<br>
+                                <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="your-subject" value="" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span>
+                            </p>
+                            <p>Your Message<br>
+                                <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span>
+                            </p>
+                            <p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit"></p>
+                        </form>
+                    </div>
+                </div>
+            </article>
+            <!-- article end -->
+        </div>
+        <!-- article-wrap end -->
+        <!-- main-sidebar -->
+        <div class="main-sidebar">
+            <div class="main-sidebar-widgets">
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>About Me</h3>
+                    <div class="about-widget">
+                        <img src="{% static 'images/about-sb.jpg' %}" alt="">
+                        <h4>Photographer  &amp; Blogger</h4>
+                        <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue.  </p>
+                        <div class="signature"><img src="{% static 'images/signature2.png' %}" alt=""></div>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Subscribe</h3>
+                    <div class="subscribe-widget">
+                        <form class="mc4wp-form" method="post">
+                            <input type="email" class="mc4wp_email" name="EMAIL" placeholder="Your email address" required="">
+                            <input type="submit" class="mc4wp_submit" value="Send">
+                        </form>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Recent Posts</h3>
+                    <div class="recent-post-widget">
+                        <ul>
+                            <li>
+                                <div class="recent-post-img"><a href="contact.html#"><img src="{% static 'images/instagram/4.jpg' %}" alt=""></a></div>
+                                <div class="recent-post-content">
+                                    <h4><a href="contact.html#">Snowy Mountains Trip</a></h4>
+                                    <div class="recent-post-opt">
+                                        <span class="post-date">3 May 2016</span>
+                                        <a href="contact.html#" class="post-comments">0 Comments</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recent-post-img"><a href="contact.html#"><img src="{% static 'images/instagram/5.jpg' %}" alt=""></a></div>
+                                <div class="recent-post-content">
+                                    <h4><a href="contact.html#">Snowy Mountains Trip</a></h4>
+                                    <div class="recent-post-opt">
+                                        <span class="post-date">3 May 2016</span>
+                                        <a href="contact.html#" class="post-comments">0 Comments</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="recent-post-img"><a href="contact.html#"><img src="{% static 'images/instagram/6.jpg' %}" alt=""></a></div>
+                                <div class="recent-post-content">
+                                    <h4><a href="contact.html#">Snowy Mountains Trip</a></h4>
+                                    <div class="recent-post-opt">
+                                        <span class="post-date">3 May 2016</span>
+                                        <a href="contact.html#" class="post-comments">0 Comments</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Resent tags </h3>
+                    <div class="tags-widget">
+                        <div class="tagcloud">
+                            <a href="contact.html#">Lifystyle</a>
+                            <a href="contact.html#">Travel</a>
+                            <a href="contact.html#">Trip</a>
+                            <a href="contact.html#">Outdoor</a>
+                            <a href="contact.html#">Camping</a>
+                            <a href="contact.html#">Photo</a>
+                            <a href="contact.html#">Adventure</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>My instagram</h3>
+                    <div class="instagram-widget">
+                        <div class="jr-insta-thumb">
+                            <ul>
+                                <li>
+                                    <a href="contact.html#"><img src="{% static 'images/instagram/1.jpg' %}" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="contact.html#"><img src="{% static 'images/instagram/2.jpg' %}" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="contact.html#"><img src="{% static 'images/instagram/3.jpg' %}" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="contact.html#"><img src="{% static 'images/instagram/4.jpg' %}" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="contact.html#"><img src="{% static 'images/instagram/5.jpg' %}" alt=""></a>
+                                </li>
+                                <li>
+                                    <a href="contact.html#"><img src="{% static 'images/instagram/6.jpg' %}" alt=""></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Banner widget</h3>
+                    <div class="banner-widget">
+                        <img src="{% static 'images/banner.jpg' %}" alt="">
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Categories</h3>
+                    <div class="category-widget">
+                        <ul class="cat-item">
+                            <li><a href="contact.html#">Lifystyle</a>(12)</li>
+                            <li><a href="contact.html#">Outdoor</a>(22)</li>
+                            <li><a href="contact.html#">Camping</a>(10)</li>
+                            <li><a href="contact.html#">Travel</a>(4)</li>
+                            <li><a href="contact.html#">Adventure</a>(5)</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+                <!-- main-sidebar-widget-->
+                <div class="main-sidebar-widget">
+                    <h3>Social widget</h3>
+                    <div class=" social-widget">
+                        <ul>
+                            <li><a href="contact.html#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="contact.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="contact.html#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="contact.html#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="contact.html#" target="_blank"><i class="fa fa-tumblr"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- main-sidebar-widget end-->
+            </div>
+        </div>
+        <!-- main-sidebar end-->
+    </div>
+</div>
+{% endblock %}

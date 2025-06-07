@@ -24,3 +24,11 @@ class ListPostView(ListView):
     model = Post
     context_object_name = 'posts'
     ordering = ['-published_date']
+
+
+class ContactPage(TemplateView):
+    template_name = 'contact.html'
+
+
+class Error404(TemplateView):
+    template_name = '404.html'
