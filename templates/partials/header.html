@@ -13,7 +13,13 @@
         </ul>
       </div>
       <ul class="top-bar-contacts fl-right">
-        <li><span>Mail:</span><a href="#">yourmail@domain.com</a></li>
+        {% if user.is_authenticated %}
+          <li>
+            <span>
+              Welcome{% if user.profile.nickname %} {{ user.profile.nickname }}{% endif %}
+            </span>
+          </li>
+        {% endif %}
 
         {% if user.is_authenticated %}
           <li><a href="{% url 'dashboard' %}" class="tagcloud">My account</a></li>
@@ -90,19 +96,7 @@
                       </ul>
                       <!--second level end-->
                   </li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li>
-                      <a href="index.html#">Features</a>
-                      <!--second level -->
-                      <ul>
-                          <li><a href="header2.html">Header Light</a></li>
-                          <li><a href="header3.html">Header minimal</a></li>
-                          <li><a href="footer2.html">Footer light</a></li>
-                          <li><a href="footer3.html">Footer minimal</a></li>
-                          <li><a href="404.html">404 page</a></li>
-                      </ul>
-                      <!--second level end-->
-                  </li>
+                  <li><a href="{% url 'contact' %}">Contact</a></li>
               </ul>
           </nav>
           <div class="show-search show-fixed-search fl-right"><i class="fa fa-search"></i></div>

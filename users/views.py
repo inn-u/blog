@@ -12,7 +12,10 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user'] = self.request.user
+        user = self.request.user
+        context['user'] = user
+        context['profile'] = getattr(user, 'profile', None)
+        context['title'] = 'Dashboard'
         return context
 
 
@@ -34,4 +37,5 @@ class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('dashboard')
 
     def get_object(self, queryset=None):
-        return self.request.user
+        profile, created = UserProfile.objects.get_or_create(user=self.request.user)
+        return profile

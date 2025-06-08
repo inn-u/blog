@@ -1,16 +1,29 @@
 from django import forms
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import User, UserProfile
 
 
 class CustomUserCreationForm(UserCreationForm):
+    nickname = forms.CharField(max_length=30, required=True)
+
     class Meta:
         model = User
-        fields = ('email',)
+        fields = (
+            'email',
+            'password1',
+            'password2',
+        )
+
+    def save(self, commit=True):
+        user = super().save(commit=commit)
+        nickname = self.cleaned_data.get('nickname')
+        if commit:
+            UserProfile.objects.create(user=user, nickname=nickname)
+        return user
 
 
-class CustomUserChangeForm(UserChangeForm):
+class CustomUserChangeForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['first_name', 'last_name', 'date_of_birth', 'nickname', 'avatar']

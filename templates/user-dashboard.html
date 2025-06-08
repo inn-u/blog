@@ -1,21 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Dashboard{% endblock %}
+
 {% block content %}
-<h1>{{ title }}</h1>
+<h2>{{ title }}</h2>
 
-<h2>Account</h2>
-
-<h3>Welcome, {{ user }}!</h3>
-
+<h3>Welcome, {{ user.profile.nickname }}!</h3>
+<div class="separator img-separator"><img src="/static/images/sep-blk.png" alt=""></div>
 <div class="container">
-  {% if profile.avatar %}
-    <img src="{{ profile.avatar.url }}" alt="Avatar" width="150" height="150" style="border-radius: 50%;">
-  {% else %}
-    <p>No avatar uploaded</p>
-  {% endif %}
-
-  <button type="submit"><a href="{% url 'edit-profile' %}">Edit Profile</a></button>
+<div class="post-author">
+    <div class="post-author-wrap">
+        <div class="post-author-img">
+            <img src="{{ user.profile.get_avatar_url }}" alt="Avatar">
+        </div>
+        <span>Email: {{ user.email }}</span>
+        <h3><a href="post-single.html#">{{ user.profile.nickname }}</a></h3>
+        <p>{{ user.profile.first_name }} {{ user.profile.last_name }}</p>
+        <ul>
+            <p class="mc4wp_submit">
+            <button type="button" class="submit" onclick="window.location.href='{% url 'edit-profile' %}'">
+                Edit Profile
+            </button>
+            </p>
+        </ul>
+    </div>
+</div>
 
   {% if user.is_authenticated %}
   <form action="{% url 'logout' %}" method="post" style="display:inline;">

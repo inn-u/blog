@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
+{% block title %}Register{% endblock %}
 
- <h1>{{ title }}</h1>
+{% block content %}
+<h2>{{ title }}</h2>
 
 <div class="container">
    <h2>Register</h2>
@@ -14,7 +15,8 @@
 
     <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
     <button type="submit" class="wpcf7-submit">Register</button>
-        <button type="button" class="wpcf7-submit" onclick="location.href='/login'">Login</button>
+
+    <button type="button" class="wpcf7-submit" onclick="location.href='/login'">Login</button>
     </div>
   </form>
 </div>
