@@ -5,6 +5,7 @@ from django.views.generic import TemplateView, UpdateView
 
 from .forms import CustomUserChangeForm, CustomUserCreationForm
 from .models import UserProfile
+from blog.models import Post
 
 
 class DashboardView(LoginRequiredMixin, TemplateView):
@@ -16,6 +17,7 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         context['user'] = user
         context['profile'] = getattr(user, 'profile', None)
         context['title'] = 'Dashboard'
+        context['user_posts'] = Post.objects.filter(author=user)
         return context
 
 

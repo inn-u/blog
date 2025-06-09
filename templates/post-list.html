@@ -35,11 +35,12 @@
                     </div>
                     <!-- article end -->
                 </div>
-            {% for post in posts %}
             </article>
-            <h3 class="big-title"> Related posts </h3>
             <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
+            <h3 class="big-title"> Related posts </h3>
+
             <div class="row list-sb-holder">
+                {% for post in posts %}
                 <div class="col-md-12 grid-sb-wrap">
                     <article class="grid-sb">
                         <div class="blog-media">
