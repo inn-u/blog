@@ -50,7 +50,7 @@
                         </div>
                         <div class="list-item">
                             <ul class="cat-list">
-                                <li><a href="index6.html#">{{ post.published_date|date:"d.m.Y H:i" }}</a></li>
+                                <li><a href="index6.html#">{{ post.published_date|date:"d M Y" }}</a></li>
                                 <li><a href="index6.html#">{{ post.author.nickname }}</a></li>
                             </ul>
                             <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
