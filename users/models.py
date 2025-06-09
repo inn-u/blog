@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
+from django.templatetags.static import static
 
 from .user_manager import UserManager
 
@@ -20,9 +21,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, related_name='user', on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=100)
+    user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=50, null=True, blank=True)
+    last_name = models.CharField(max_length=100, null=True, blank=True)
     date_of_birth = models.DateField(
         verbose_name='Date of Birth', null=True, blank=True
     )
@@ -36,3 +37,8 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f'user_id={self.id} email={self.email}'
+
+    def get_avatar_url(self):
+        if self.avatar:
+            return self.avatar.url
+        return static('placeholders/avatar-placeholder.png')

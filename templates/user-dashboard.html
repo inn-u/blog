@@ -1,22 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Dashboard{% endblock %}
+
 {% block content %}
-<h1>{{ title }}</h1>
+<h2>{{ title }}</h2>
 
-<h2>Account</h2>
+<h3>Welcome, {{ user.profile.nickname }}!</h3>
+<div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
 
-<h3>Welcome, {{ user }}!</h3>
-
+<!--User account preview-->
 <div class="container">
-  {% if profile.avatar %}
-    <img src="{{ profile.avatar.url }}" alt="Avatar" width="150" height="150" style="border-radius: 50%;">
-  {% else %}
-    <p>No avatar uploaded</p>
-  {% endif %}
+    <div class="post-author">
+        <div class="post-author-wrap">
+            <div class="post-author-img">
+                <img src="{{ user.profile.get_avatar_url }}" alt="Avatar">
+            </div>
+            <span>Email: {{ user.email }}</span>
+            <h3><a href="post-single.html#">{{ user.profile.nickname }}</a></h3>
+            <p>{% with fname=user.profile.first_name|default_if_none:"" lname=user.profile.last_name|default_if_none:"" %}
+                {% if fname or lname %}
+                    <p>{{ fname }} {{ lname }}</p>
+                    {% endif %}
+                {% endwith %}
+            </p>
+            <ul>
+                <p class="mc4wp_submit">
+                    <button type="button" class="submit" onclick="window.location.href='{% url 'edit-profile' %}'">
+                        Edit Profile
+                    </button>
+                </p>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--End user account preview-->
 
-  <button type="submit"><a href="{% url 'edit-profile' %}">Edit Profile</a></button>
-
+<!--Logout button -->
+<div>
   {% if user.is_authenticated %}
   <form action="{% url 'logout' %}" method="post" style="display:inline;">
     {% csrf_token %}
@@ -24,7 +45,47 @@
       <i class="bi bi-box-arrow-right"></i> Logout
     </button>
   </form>
-</div>
 {% endif %}
+</div>
+<!--End logout button-->
+
+<!--User article container-->
+<div class="container">
+    <h3 class="big-title"> Your posts </h3>
+    <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
+    <div class="row list-sb-holder">
+        {% if user_posts %}
+            {% for post in user_posts %}
+            <div class="col-md-12 grid-sb-wrap">
+                <article class="grid-sb">
+                    <div class="blog-media">
+                        <img src="{{ post.images.first.image.url }}" class="respimg" alt="">
+                        <div class="overlay"></div>
+                        <a href="{{ post.get_absolute_url }}" class="dec-link">Read Article</a>
+                    </div>
+                    <div class="list-item">
+                        <ul class="cat-list">
+                            <li><a href="index6.html#">{{ post.published_date|date:"d.m.Y H:i" }}</a></li>
+                            <li><a href="index6.html#">{{ post.author.nickname }}</a></li>
+                        </ul>
+                        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+                        <p>{{ post.content|truncatewords:30 }}</p>
+                        <a href="{{ post.get_absolute_url }}" class="post-link">Read More</a>
+                        <ul class="post-counter">
+                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
+                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
+                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+            <!-- article end -->
+        {% else %}
+            <li>There is no posts yet.</li>
+        {% endif %}
+    </div>
+</div>
+<!--End user article container-->
 
 {% endblock %}
