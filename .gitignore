@@ -174,4 +174,4 @@ cython_debug/
 .pypirc
 
 # test files for avatar and post images gallery
-/media/post_images
+/media

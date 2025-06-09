@@ -29,7 +29,13 @@ class CustomUserChangeForm(forms.ModelForm):
         fields = ['first_name', 'last_name', 'date_of_birth', 'nickname', 'avatar']
         widgets = {
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'nickname': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(
+                attrs={'class': 'form-control', 'placeholder': 'Enter first name'}
+            ),
+            'last_name': forms.TextInput(
+                attrs={'class': 'form-control', 'placeholder': 'Enter last name'}
+            ),
+            'nickname': forms.TextInput(
+                attrs={'class': 'form-control', 'placeholder': 'Enter nickname'}
+            ),
         }

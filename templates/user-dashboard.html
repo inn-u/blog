@@ -16,12 +16,17 @@
         </div>
         <span>Email: {{ user.email }}</span>
         <h3><a href="post-single.html#">{{ user.profile.nickname }}</a></h3>
-        <p>{{ user.profile.first_name }} {{ user.profile.last_name }}</p>
+        <p>{% with fname=user.profile.first_name|default_if_none:"" lname=user.profile.last_name|default_if_none:"" %}
+            {% if fname or lname %}
+                <p>{{ fname }} {{ lname }}</p>
+                {% endif %}
+            {% endwith %}
+        </p>
         <ul>
             <p class="mc4wp_submit">
-            <button type="button" class="submit" onclick="window.location.href='{% url 'edit-profile' %}'">
-                Edit Profile
-            </button>
+                <button type="button" class="submit" onclick="window.location.href='{% url 'edit-profile' %}'">
+                    Edit Profile
+                </button>
             </p>
         </ul>
     </div>
