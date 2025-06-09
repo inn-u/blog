@@ -29,7 +29,7 @@
                     <!-- article-holder -->
                     <article class="single-article">
                         <!--  article title -->
-                        <span class="single-article-date">{{ post.published_date }}</span>
+                        <span class="single-article-date">{{ post.published_date|date:"d M Y" }}</span>
                         <h2 class="single-article-title fl-wrap"> <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
                         <div class="single-article-cat fl-wrap">
                             <a href="post-single.html#">Travel</a>
