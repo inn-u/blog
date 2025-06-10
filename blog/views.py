@@ -9,6 +9,12 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['posts'] = Post.objects.order_by('-published_date')[:8]
+
+        featured_post = Post.objects.filter(is_featured=True).first()
+        if not featured_post:
+            featured_post = Post.objects.order_by('-published_date').first()
+
+        context['featured_post'] = featured_post
         return context
 
 

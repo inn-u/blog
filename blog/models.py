@@ -12,6 +12,7 @@ class Post(models.Model):
     author = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE, related_name='posts', null=True
     )
+    is_featured = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -28,6 +29,8 @@ class Post(models.Model):
                 slug = f'{base_slug}-{counter}'
                 counter += 1
             self.slug = slug
+            if self.is_featured:
+                Post.objects.filter(is_featured=True).update(is_featured=False)
         super().save(*args, **kwargs)
 
 

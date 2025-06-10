@@ -11,6 +11,9 @@ class PostImageInline(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     inlines = [PostImageInline]
     exclude = ('slug',)
+    list_display = ('title', 'is_featured', 'published_date')
+    list_editable = ('is_featured',)
+    list_filter = ('is_featured', 'published_date')
 
 
 admin.site.register(Post, PostAdmin)
