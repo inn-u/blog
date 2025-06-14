@@ -1,6 +1,7 @@
+from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView, TemplateView
 
-from .models import Post
+from .models import Post, Tag
 
 
 class HomePageView(TemplateView):
@@ -35,6 +36,21 @@ class ListPostView(ListView):
     model = Post
     context_object_name = 'posts'
     ordering = ['-published_date']
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        tag_slug = self.kwargs.get('tag_slug')
+        if tag_slug:
+            tag = get_object_or_404(Tag, slug=tag_slug)
+            self.tag = tag
+            queryset = queryset.filter(tags=tag)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if hasattr(self, 'tag'):
+            context['tag'] = self.tag
+        return context
 
 
 class ContactPage(TemplateView):

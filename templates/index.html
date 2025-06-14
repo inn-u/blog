@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block title %}Main page{% endblock %}
 {% block header %}Travel Blog{% endblock %}
@@ -53,9 +54,11 @@
                             <span class="post-date">{{ featured_post.published_date|date:"d M Y" }}</span>
                             <h2><a href="{{ featured_post.get_absolute_url }}">{{ featured_post.title }}<br> Aenean tincidunt.</a></h2>
                             <ul>
-                                <li><a href="index.html#">Travel</a></li>
-                                <li><a href="index.html#">Trip</a></li>
-                                <li><a href="index.html#">Lifystyle</a></li>
+                                {% for tag in featured_post.tags.all %}
+                                    <li><a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a></li>
+                                {% empty %}
+                                    <li><span>— No tags —</span></li>
+                                {% endfor %}
                             </ul>
                             <div class="clearfix"></div>
                             <p>{{ featured_post.content|truncatewords:30 }}</p>
@@ -92,8 +95,11 @@
                         </div>
                         <ul class="cat-list">
                             <li><a href="index.html#">{{ post.published_date|date:"d M Y" }}</a></li>
-                            <li><a href="index.html#">Travel</a></li>
-                            <li><a href="index.html#">Trip</a></li>
+                            {% for tag in post.tags.all %}
+                                <li><a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a></li>
+                            {% empty %}
+                                <li><span>— No tags —</span></li>
+                            {% endfor %}
                         </ul>
                         <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
                         <p>{{ post.content|truncatewords:30 }}</p>
@@ -116,134 +122,8 @@
         </div>
         <!-- article-wrap end -->
 
-        <!-- main-sidebar -->
-        <div class="main-sidebar">
-            <div class="main-sidebar-widgets">
-                <!-- main-sidebar-widget-->
-                <div class="main-sidebar-widget">
-                    <h3>About Me</h3>
-                    <div class="about-widget">
-                        <img src="{% static 'images/about-sb.jpg' %}" alt="">
-                        <h4>Photographer  & Blogger</h4>
-                        <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue.  </p>
-                        <div class="signature"><img src="{% static 'images/signature2.png' %}" alt=""></div>
-                    </div>
-                </div>
-                <!-- main-sidebar-widget end-->
-
-                <!-- main-sidebar-widget-->
-                <div class="main-sidebar-widget">
-                    <h3>Recent Posts</h3>
-                    <div class="recent-post-widget">
-                        <ul>
-                            <li>
-                                <div class="recent-post-img"><a href="index.html#"><img src="{% static 'images/instagram/4.jpg' %}" alt=""></a></div>
-                                <div class="recent-post-content">
-                                    <h4><a href="index.html#">Snowy Mountains Trip</a></h4>
-                                    <div class="recent-post-opt">
-                                        <span class="post-date">3 May 2016</span>
-                                        <a href="index.html#" class="post-comments">0 Comments</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="recent-post-img"><a href="index.html#"><img src="{% static 'images/instagram/5.jpg' %}" alt=""></a></div>
-                                <div class="recent-post-content">
-                                    <h4><a href="index.html#">Snowy Mountains Trip</a></h4>
-                                    <div class="recent-post-opt">
-                                        <span class="post-date">3 May 2016</span>
-                                        <a href="index.html#" class="post-comments">0 Comments</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="recent-post-img"><a href="index.html#"><img src="{% static 'images/instagram/6.jpg' %}" alt=""></a></div>
-                                <div class="recent-post-content">
-                                    <h4><a href="index.html#">Snowy Mountains Trip</a></h4>
-                                    <div class="recent-post-opt">
-                                        <span class="post-date">3 May 2016</span>
-                                        <a href="index.html#" class="post-comments">0 Comments</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- main-sidebar-widget end-->
-
-                <!-- main-sidebar-widget-->
-                <div class="main-sidebar-widget">
-                    <h3>Resent tags </h3>
-                    <div class="tags-widget">
-                        <div class="tagcloud">
-                            <a href="index.html#">Lifystyle</a>
-                            <a href="index.html#">Travel</a>
-                            <a href="index.html#">Trip</a>
-                            <a href="index.html#">Outdoor</a>
-                            <a href="index.html#">Camping</a>
-                            <a href="index.html#">Photo</a>
-                            <a href="index.html#">Adventure</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- main-sidebar-widget end-->
-
-                <!-- main-sidebar-widget-->
-                <div class="main-sidebar-widget">
-                    <h3>My instagram</h3>
-                    <div class="instagram-widget">
-                        <div class='jr-insta-thumb'>
-                            <ul>
-                                <li>
-                                    <a href="index.html#"><img src="{% static 'images/instagram/1.jpg' %}" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="index.html#"><img src="{% static 'images/instagram/2.jpg' %}" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="index.html#"><img src="{% static 'images/instagram/3.jpg' %}" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="index.html#"><img src="{% static 'images/instagram/4.jpg' %}" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="index.html#"><img src="{% static 'images/instagram/5.jpg' %}" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="index.html#"><img src="{% static 'images/instagram/6.jpg' %}" alt=""></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- main-sidebar-widget end-->
-
-                <!-- main-sidebar-widget-->
-                <div class="main-sidebar-widget">
-                    <h3>Banner widget</h3>
-                    <div class="banner-widget">
-                        <img src="{% static 'images/banner.jpg' %}" alt="">
-                    </div>
-                </div>
-                <!-- main-sidebar-widget end-->
-
-                <!-- main-sidebar-widget-->
-                <div class="main-sidebar-widget">
-                    <h3>Categories</h3>
-                    <div class="category-widget">
-                        <ul class="cat-item">
-                            <li><a href="index.html#">Lifystyle</a>(12)</li>
-                            <li><a href="index.html#">Outdoor</a>(22)</li>
-                            <li><a href="index.html#">Camping</a>(10)</li>
-                            <li><a href="index.html#">Travel</a>(4)</li>
-                            <li><a href="index.html#">Adventure</a>(5)</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- main-sidebar-widget end-->
-            </div>
-        </div>
-        <!-- main-sidebar end-->
+        <!--main-sidebar-->
+        {% include "partials/main-sidebar.html" %}
     </div>
     <!-- article-holder  end-->
 </div>

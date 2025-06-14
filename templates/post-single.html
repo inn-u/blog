@@ -66,10 +66,11 @@
                             <div class="fl-wrap">
                                 <div class="single-post-tags fl-left">
                                     <i class="fa fa-tags"></i>
-                                    <a href="post-single.html#" >Adventure</a>
-                                    <a href="post-single.html#">Happy</a>
-                                    <a href="post-single.html#">Lifestyle</a>
-                                    <a href="post-single.html#">Travel</a>
+                                    {% for tag in post.tags.all %}
+                                        <a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a>
+                                    {% empty %}
+                                        <span>— No tags —</span>
+                                    {% endfor %}
                                 </div>
                                 <div class="share-button">Share<i class="fa fa-bullhorn"></i></div>
                                 <div class="share-inner">

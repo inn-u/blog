@@ -4,10 +4,24 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=60, unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
     content = models.TextField()
+    tags = models.ManyToManyField('Tag', related_name='posts', blank=True)
     published_date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
         get_user_model(), on_delete=models.CASCADE, related_name='posts', null=True

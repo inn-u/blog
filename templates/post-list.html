@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container">
     <div class="article-holder">
-        <!-- article-wrap-->
+<!--         article-wrap-->
         <div class="article-wrap col-wrap">
             <h3 class="big-title"> Featured Post </h3>
             <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
@@ -33,11 +33,17 @@
                             <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
                         </ul>
                     </div>
-                    <!-- article end -->
+        <!-- article end -->
                 </div>
             </article>
-            <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
-            <h3 class="big-title"> Related posts </h3>
+
+            {% if tag %}
+                <h3 class="big-title"> Posts wit tags: "{{ tag.name }}" </h3>
+                <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
+            {% else %}
+                <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
+                <h3 class="big-title"> All posts </h3>
+            {% endif %}
 
             <div class="row list-sb-holder">
                 {% for post in posts %}

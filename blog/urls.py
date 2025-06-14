@@ -8,4 +8,5 @@ urlpatterns = [
     path('preview-404/', Error404.as_view(), name='preview-404/'),
     path('', ListPostView.as_view(), name='post_list'),
     path('<slug:slug>/', SingePostView.as_view(), name='post_detail'),
+    path('tag/<slug:tag_slug>/', ListPostView.as_view(), name='posts_by_tag'),
 ]
