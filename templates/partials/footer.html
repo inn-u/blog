@@ -25,28 +25,25 @@
           <div class="footer-widget">
             <h3>Recent posts</h3>
             <div class="recent-post-widget">
-              <ul>
-                <li>
-                  <div class="recent-post-img"><a href="#"><img src="{% static 'images/instagram/1.jpg' %}" alt=""></a></div>
-                  <div class="recent-post-content">
-                    <h4><a href="#">Snowy Mountains Trip</a></h4>
-                    <div class="recent-post-opt">
-                      <span class="post-date">3 May 2016</span>
-                      <a href="#" class="post-comments">0 Comments</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="recent-post-img"><a href="#"><img src="{% static 'images/instagram/2.jpg' %}" alt=""></a></div>
-                  <div class="recent-post-content">
-                    <h4><a href="#">Snowy Mountains Trip</a></h4>
-                    <div class="recent-post-opt">
-                      <span class="post-date">3 May 2016</span>
-                      <a href="#" class="post-comments">0 Comments</a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                <ul>
+                    {% for post in recent_posts %}
+                    <li>
+                        <div class="recent-post-img">
+                            <a href="{{ post.get_absolute_url }}">
+                            <img src="{{ post.images.first.image.url }}" alt=""></a>
+                        </div>
+                        <div class="recent-post-content">
+                            <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                            <div class="recent-post-opt">
+                                <span class="post-date">{{ post.published_date|date:"d M Y" }}</span>
+                                <a href="index.html#" class="post-comments">0 Comments</a>
+                            </div>
+                        </div>
+                    </li>
+                    {% empty %}
+                        <li>No posts yet.</li>
+                    {% endfor %}
+                </ul>
             </div>
           </div>
         </div>

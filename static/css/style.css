@@ -2355,12 +2355,20 @@ ul {
 	width:50px;
 	height:50px;
 	overflow:hidden;
+	border-radius: 50%;
+	background-color: #eee; /* резервний фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .recent-post-img img {
-	width:50px;
-	height:auto;
-	border-radius:100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ключове для обрізки і заповнення */
+    border-radius: 50%; /* щоб картинка теж була круглою */
+    display: block; /* прибирає зайві відступи */
 }
+
 .recent-post-content {
 	float:left;
 }
