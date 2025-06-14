@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # custom processors
                 'blog.context_processors.recent_posts',
+                'blog.context_processors.category_menu',
             ],
         },
     },

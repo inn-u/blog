@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView, TemplateView
 
-from .models import Post, Tag
+from .models import Post, Tag, Category
 
 
 class HomePageView(TemplateView):
@@ -39,11 +39,21 @@ class ListPostView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+
+        # tag filter
         tag_slug = self.kwargs.get('tag_slug')
         if tag_slug:
             tag = get_object_or_404(Tag, slug=tag_slug)
             self.tag = tag
             queryset = queryset.filter(tags=tag)
+
+        # category filter
+        category_slug = self.kwargs.get('category_slug')
+        if category_slug:
+            category = get_object_or_404(Category, slug=category_slug)
+            self.category = category
+            queryset = queryset.filter(category=category)
+
         return queryset
 
     def get_context_data(self, **kwargs):

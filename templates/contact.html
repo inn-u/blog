@@ -4,6 +4,10 @@
  <h1>{{ title }}</h1>
 {% block content %}
 <div class="container">
+    <!--Category bar holder-->
+    {% include "partials/category-navigation.html" %}
+    <!--End category bar holder-->
+
     <div class="article-holder">
         <!-- article-wrap-->
         <div class="article-wrap col-wrap">

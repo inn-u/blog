@@ -5,32 +5,10 @@
 {% block header %}Travel Blog{% endblock %}
 
 {% block content %}
-
-<!--Logo holder-->
-<div class="logo-inner">
-    <div class="logo-holder">
-        <a href="index.html"><img src="{% static 'images/logo2.png' %}"></a>
-    </div>
-    <p>" A super cool template for bloggers, photographers and travelers "</p>
-</div>
-<!--End logo holder-->
-
-
 <div class="clearfix"></div>
 <div class="container">
     <!--Category bar holder-->
-    <div class="category-nav">
-        <div class="category-nav-inner">
-            <span class="cat-button">Categories</span>
-            <ul>
-                <li><a href="index.html#">Travel</a><span class="tool-count">10</span></li>
-                <li><a href="index.html#">Films</a><span class="tool-count">12</span></li>
-                <li><a href="index.html#">Outdoor</a><span class="tool-count">4</span></li>
-                <li><a href="index.html#">Photos</a><span class="tool-count">5</span></li>
-                <li><a href="index.html#">Lifestyle</a><span class="tool-count">23</span></li>
-            </ul>
-        </div>
-    </div>
+    {% include "partials/category-navigation.html" %}
     <!--End category bar holder-->
 
     <!-- article-holder -->

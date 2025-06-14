@@ -9,4 +9,7 @@ urlpatterns = [
     path('', ListPostView.as_view(), name='post_list'),
     path('<slug:slug>/', SingePostView.as_view(), name='post_detail'),
     path('tag/<slug:tag_slug>/', ListPostView.as_view(), name='posts_by_tag'),
+    path(
+        'category/<slug:category_slug>/', ListPostView.as_view(), name='post_category'
+    ),
 ]

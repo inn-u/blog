@@ -4,7 +4,12 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+<div class="clearfix"></div>
 <div class="container">
+    <!--Category bar holder-->
+    {% include "partials/category-navigation.html" %}
+    <!--End category bar holder-->
+
     <div class="article-holder">
         <!-- article-wrap-->
         <div class="article-wrap  col-wrap">

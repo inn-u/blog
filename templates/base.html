@@ -18,8 +18,20 @@
   <body>
 
     <div id="main">
+
        {% include "partials/header.html" %}
+
+
       <div id="wrapper">
+        <!--Logo holder-->
+        <div class="logo-inner">
+            <div class="logo-holder">
+                <a href="index.html"><img src="{% static 'images/logo2.png' %}"></a>
+            </div>
+            <p>" A super cool template for bloggers, photographers and travelers "</p>
+        </div>
+        <!--End logo holder-->
+
         {% block content %}{% endblock %}
       </div>
       {% include "partials/footer.html" %}

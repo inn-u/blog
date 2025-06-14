@@ -102,11 +102,12 @@
             <h3>Categories</h3>
             <div class="category-widget">
                 <ul class="cat-item">
-                    <li><a href="index.html#">Lifystyle</a>(12)</li>
-                    <li><a href="index.html#">Outdoor</a>(22)</li>
-                    <li><a href="index.html#">Camping</a>(10)</li>
-                    <li><a href="index.html#">Travel</a>(4)</li>
-                    <li><a href="index.html#">Adventure</a>(5)</li>
+                    {% for category in category_menu %}
+                        <li><a href="{% url 'post_category' category.slug %}">{{ category.name }}</a>
+                            ({{ category.post_count }})</li>
+                    {% empty %}
+                        <li>No categories yet.</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

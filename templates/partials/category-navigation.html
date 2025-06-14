@@ -1,0 +1,15 @@
+<!--Category bar holder-->
+<div class="category-nav">
+    <div class="category-nav-inner">
+        <span class="cat-button">Categories</span>
+        <ul>
+            {% for category in category_menu %}
+            <li><a href="{% url 'post_category' category.slug %}">{{ category.name }}</a>
+                <span class="tool-count">({{ category.post_count }})</span></li>
+            {% empty %}
+            <li> -- No category -- </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<!--End category bar holder-->

@@ -3,8 +3,12 @@
 
 {% block content %}
 <div class="container">
+    <!--Category bar holder-->
+    {% include "partials/category-navigation.html" %}
+    <!--End category bar holder-->
+
     <div class="article-holder">
-<!--         article-wrap-->
+        <!--article-wrap-->
         <div class="article-wrap col-wrap">
             <h3 class="big-title"> Featured Post </h3>
             <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
