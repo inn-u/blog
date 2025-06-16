@@ -1,8 +1,12 @@
+from django.db.models import Count
+
 from .models import Post, Category
 
 
 def recent_posts(request):
-    posts = Post.objects.order_by('-published_date')[:3]
+    posts = Post.objects.annotate(comment_count=Count('comments')).order_by(
+        '-published_date'
+    )[:3]
     return {'recent_posts': posts}
 
 

@@ -1,5 +1,5 @@
 from django import template
-from blog.models import Tag
+from blog.models import Tag, Comment
 from django.db.models import Max
 
 register = template.Library()
@@ -31,3 +31,8 @@ def get_recent_tags(limit=10):
         .filter(latest_use__isnull=False)
         .order_by('-latest_use')[:limit]
     )
+
+
+@register.simple_tag
+def get_latest_comments():
+    return Comment.objects.select_related('user', 'post').order_by('-creation_date')[:2]

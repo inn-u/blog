@@ -30,7 +30,7 @@
                             <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
                             <div class="recent-post-opt">
                                 <span class="post-date">{{ post.published_date|date:"d M Y" }}</span>
-                                <a href="index.html#" class="post-comments">0 Comments</a>
+                                <a href="index.html#" class="post-comments">{{ post.comment_count }} Comments</a>
                             </div>
                         </div>
                     </li>
