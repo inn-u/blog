@@ -1833,8 +1833,11 @@ ul {
 	text-align:left;
 }
 .item-related img {
-	width:100%;
-	height:auto;
+	width: 224px;
+	height: 148px;
+	object-fit: cover;
+	display: block;
+	background-color: #f0f0f0;
 }
 .post-related {
 	margin-top:15px;

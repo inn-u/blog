@@ -102,18 +102,25 @@
 
             <h3 class="middle-title"> YOU MIGHT ALSO LIKE </h3>
             <!-- post-related -->
-            {% get_related_posts post as related_posts %}
-            {% for related in related_posts %}
-                <div class="post-related   row">
+            <div class="post-related   row">
+                {% get_related_posts post as related_posts %}
+                {% for related in related_posts %}
                     <div class="item-related col-md-4">
-                        <a href="{{ related.get_absolute_url }}"><img src="{{ related.images.first.image.url }}"  alt=""></a>
+                        <a href="{{ related.get_absolute_url }}">
+                            {% if related.images.first %}
+                              <img src="{{ related.images.first.image.url }}" alt="{{ related.title }}">
+                            {% else %}
+                              <img src="{% static 'placeholders/photo_placeholder.png' %}" alt="Placeholder">
+                            {% endif %}
+                         </a>
                         <h3><a href="{{ related.get_absolute_url }}">{{ related.title }}</a></h3>
                         <span class="post-date">{{ related.published_date | date:"d M Y" }}</span>
                     </div>
-                </div>
-            {% empty %}
-                <li> There is no related posts at now. </li>
-            {% endfor %}
+
+                {% empty %}
+                     <div><li> There is no related posts at now. </li></div>
+                {% endfor %}
+            </div>
             <!-- post-related  end-->
 
             <!-- comments -->
