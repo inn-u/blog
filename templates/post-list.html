@@ -10,43 +10,43 @@
     <div class="article-holder">
         <!--article-wrap-->
         <div class="article-wrap col-wrap">
-            <h3 class="big-title"> Featured Post </h3>
-            <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
+<!--            <h3 class="big-title"> Featured Post </h3>-->
+<!--            <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>-->
             <!-- article  -->
-            <article class="new-article">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="blog-media">
-                            <img src="{% static 'images/article/big/2.jpg' %}" class="respimg" alt="">
-                            <div class="overlay"></div>
-                        </div>
-                        <div class="fp-desc">
-                            <span class="post-date">24 may 2016</span>
-                            <h2><a href="post-single.html">Phasellus egestas interdum pulvinar. <br> Aenean tincidunt.</a></h2>
-                            <ul>
-                                <li><a href="index6.html#">Travel</a></li>
-                                <li><a href="index6.html#">Trip</a></li>
-                                <li><a href="index6.html#">Lifystyle</a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue... </p>
-                        </div>
-                        <ul class="post-counter">
-                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
-                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
-                        </ul>
-                    </div>
+<!--            <article class="new-article">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="blog-media">-->
+<!--                            <img src="{% static 'images/article/big/2.jpg' %}" class="respimg" alt="">-->
+<!--                            <div class="overlay"></div>-->
+<!--                        </div>-->
+<!--                        <div class="fp-desc">-->
+<!--                            <span class="post-date">24 may 2016</span>-->
+<!--                            <h2><a href="post-single.html">Phasellus egestas interdum pulvinar. <br> Aenean tincidunt.</a></h2>-->
+<!--&lt;!&ndash;                            <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li><a href="index6.html#">Travel</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li><a href="index6.html#">Trip</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <li><a href="index6.html#">Lifystyle</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </ul>&ndash;&gt;-->
+<!--                            <div class="clearfix"></div>-->
+<!--                            <p>Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue... </p>-->
+<!--                        </div>-->
+<!--                        <ul class="post-counter">-->
+<!--                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>-->
+<!--                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>-->
+<!--                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
         <!-- article end -->
-                </div>
-            </article>
+<!--                </div>-->
+<!--            </article>-->
 
             {% if tag %}
                 <h3 class="big-title"> Posts wit tags: "{{ tag.name }}" </h3>
                 <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
             {% else %}
-                <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
                 <h3 class="big-title"> All posts </h3>
+                <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
             {% endif %}
 
             <div class="row list-sb-holder">
@@ -60,16 +60,20 @@
                         </div>
                         <div class="list-item">
                             <ul class="cat-list">
-                                <li><a href="index6.html#">{{ post.published_date|date:"d M Y" }}</a></li>
-                                <li><a href="index6.html#">{{ post.author.nickname }}</a></li>
+                                <li><a href="#">{{ post.published_date|date:"d M Y" }}</a></li>
+                                {% for tag in post.tags.all %}
+                                    <li><a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a></li>
+                                {% empty %}
+                                    <li><span>— No tags —</span></li>
+                                {% endfor %}
                             </ul>
                             <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
                             <p>{{ post.content|truncatewords:30 }}</p>
                             <a href="{{ post.get_absolute_url }}" class="post-link">Read More</a>
                             <ul class="post-counter">
-                                <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
-                                <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
+<!--                                <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>-->
+<!--                                <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>-->
+                                <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>{{ post.comments.count }}</span></li>
                             </ul>
                         </div>
                     </article>

@@ -20,9 +20,11 @@
                 <span class="single-article-date">{{ post.published_date|date:"d M Y" }}</span>
                 <h2 class="single-article-title fl-wrap"> <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
                 <div class="single-article-cat fl-wrap">
-                    <a href="post-single.html#">Travel</a>
-                    <a href="post-single.html#">Films</a>
-                    <a href="post-single.html#">Photos</a>
+                    {% for tag in post.tags.all %}
+                        <a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a>
+                    {% empty %}
+                        <span>— No tags —</span>
+                    {% endfor %}
                 </div>
                 <!--  article titleend -->
                 <div class="clearfix"></div>
@@ -68,9 +70,9 @@
                     <!-- facts -->
                     <div class="art-facts">
                         <ul class="post-counter">
-                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
-                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
+<!--                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>-->
+<!--                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>-->
+                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>{{ post.comments.count }}</span></li>
                         </ul>
                     </div>
                     <!-- facts end -->
@@ -126,7 +128,7 @@
 
             <!-- comments -->
             <div class="post-comments" id="comments">
-            <h3 class="middle-title">{{ comments.count }} Comments</h3>
+            <h3 class="middle-title">{{ post.comments.count }} Comments</h3>
             {% for comment in comments %}
                 <ul class='comments'>
                     <li class="comment">
@@ -223,6 +225,5 @@
         <!-- main-sidebar end-->
     </div>
     <!-- article-holder  end-->
-</div>
 
 {% endblock %}
