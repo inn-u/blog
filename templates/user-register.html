@@ -4,11 +4,10 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-<h2>{{ title }}</h2>
+<h3 class="single-article-title fl-wrap"><a>Register</a></h3>
+<div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
 
 <div class="container">
-   <h2>Register</h2>
-    <span class="separator gray-separator small-separator no-align-separator"></span>
   <form method="post" novalidate>
     {% csrf_token %}
     {{ form.as_p }}

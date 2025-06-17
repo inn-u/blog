@@ -3,217 +3,224 @@
 {% load custom_filters %}
 
 {% block content %}
-<div id="main">
-    <div id="wrapper"
-        <!-- hero wrap -->
-        <!-- hero wrap end-->
-        <div class="clearfix"></div>
-        <div class="container">
-            <!-- category-nav  -->
-            <div class="category-nav">
-                <div class="category-nav-inner">
-<!--                        <span class="cat-button">Categories</span>-->
-<!--                        <ul>-->
-<!--                            <li><a href="post-single.html#">Travel</a><span class="tool-count">10</span></li>-->
-<!--                            <li><a href="post-single.html#">Films</a><span class="tool-count">12</span></li>-->
-<!--                            <li><a href="post-single.html#">Outdoor</a><span class="tool-count">4</span></li>-->
-<!--                            <li><a href="post-single.html#">Photos</a><span class="tool-count">5</span></li>-->
-<!--                            <li><a href="post-single.html#">Lifestyle</a><span class="tool-count">23</span></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-            </div>
-            <!-- category-nav  end-->
+
+<div class="clearfix"></div>
+<div class="container">
+    <!--Category bar holder-->
+    {% include "partials/category-navigation.html" %}
+    <!--End category bar holder-->
+
+    <!-- article-holder -->
+    <div class="article-holder">
+        <!-- article-wrap-->
+        <div class="article-wrap col-wrap">
             <!-- article-holder -->
-            <div class="article-holder">
-                <!-- article-wrap-->
-                <div class="article-wrap col-wrap">
-                    <!-- article-holder -->
-                    <article class="single-article">
-                        <!--  article title -->
-                        <span class="single-article-date">{{ post.published_date|date:"d M Y" }}</span>
-                        <h2 class="single-article-title fl-wrap"> <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
-                        <div class="single-article-cat fl-wrap">
-                            <a href="post-single.html#">Travel</a>
-                            <a href="post-single.html#">Films</a>
-                            <a href="post-single.html#">Photos</a>
+            <article class="single-article">
+                <!--  article title -->
+                <span class="single-article-date">{{ post.published_date|date:"d M Y" }}</span>
+                <h2 class="single-article-title fl-wrap"> <a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
+                <div class="single-article-cat fl-wrap">
+                    {% for tag in post.tags.all %}
+                        <a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a>
+                    {% empty %}
+                        <span>— No tags —</span>
+                    {% endfor %}
+                </div>
+                <!--  article titleend -->
+                <div class="clearfix"></div>
+                <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}"  alt=""></div>
+                <!--  blog media-->
+                <div class="blog-media">
+                    <div class="single-slider-holder fl-wrap slider-wrapper">
+                        <div class="single-slider fl-wrap">
+                            {% for image in post.images.all %}
+                                <div class="div class="item {% if forloop.first %}active{% endif %}">
+                                    <img src="{{ image.image.url }}" alt="post image">
+                                </div>
+                            {% empty %}
+                                <p>No images</p>
+                            {% endfor %}
                         </div>
-                        <!--  article titleend -->
-                        <div class="clearfix"></div>
-                        <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}"  alt=""></div>
-                        <!--  blog media-->
-                        <div class="blog-media">
-                            <div class="single-slider-holder fl-wrap slider-wrapper">
-                                <div class="single-slider fl-wrap">
-                                    {% for image in post.images.all %}
-                                        <div class="div class="item {% if forloop.first %}active{% endif %}">
-                                            <img src="{{ image.image.url }}" alt="post image">
-                                        </div>
-                                    {% empty %}
-                                        <p>No images</p>
-                                    {% endfor %}
-                                </div>
-                                <div class="customNavigation">
-                                    <a class="prev-slide transition"><i class="fa fa-caret-left"></i></a>
-                                    <span class="num-holder2"></span>
-                                    <a class="next-slide transition"><i class="fa fa-caret-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!--  blog media end -->
-                        <div class="single-article-inner">
-                            <p>{{ post.content }}</p>
-                            <!--  tags share-->
-                            <div class="fl-wrap">
-                                <div class="single-post-tags fl-left">
-                                    <i class="fa fa-tags"></i>
-                                    {% for tag in post.tags.all %}
-                                        <a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a>
-                                    {% empty %}
-                                        <span>— No tags —</span>
-                                    {% endfor %}
-                                </div>
-                                <div class="share-button">Share<i class="fa fa-bullhorn"></i></div>
-                                <div class="share-inner">
-                                    <div class="share-container"  data-share="['facebook','pinterest','googleplus','twitter','linkedin']"></div>
-                                </div>
-                            </div>
-                            <!--  tags share end -->
-                            <!-- facts -->
-                            <div class="art-facts">
-                                <ul class="post-counter">
-                                    <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
-                                    <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
-                                    <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
-                                </ul>
-                            </div>
-                            <!-- facts end -->
-                            <div class="limit-box"></div>
-                        </div>
-                    </article>
-                    <!-- article end -->
-                    <!--author -->
-                    <div class="post-author">
-                        <div class="post-author-wrap">
-                            <div class="post-author-img">
-                                <img src="{{ post.author.profile.get_avatar_url }}" alt="">
-                            </div>
-                            <span>Written By</span>
-                            <h3><a href="post-single.html#">{{ post.author|display_name }}</a></h3>
-                            <p>Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. </p>
-                            <ul>
-                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
-                            </ul>
+                        <div class="customNavigation">
+                            <a class="prev-slide transition"><i class="fa fa-caret-left"></i></a>
+                            <span class="num-holder2"></span>
+                            <a class="next-slide transition"><i class="fa fa-caret-right"></i></a>
                         </div>
                     </div>
-                    <!--author end-->
-                    <h3 class="middle-title"> YOU MIGHT ALSO LIKE </h3>
-                    <!-- post-related -->
-                    <div class="post-related   row">
-                        <!-- 1  -->
-                        <div class="item-related col-md-4">
-                            <a href="post-single.html#"><img src="{% static 'images/article/big/1.jpg' %}"   alt=""></a>
-                            <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
-                            <span class="post-date">25 may 2016</span>
+                </div>
+                <!--  blog media end -->
+                <div class="single-article-inner">
+                    <p>{{ post.content }}</p>
+                    <!--  tags share-->
+                    <div class="fl-wrap">
+                        <div class="single-post-tags fl-left">
+                            <i class="fa fa-tags"></i>
+                            {% for tag in post.tags.all %}
+                                <a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a>
+                            {% empty %}
+                                <span>— No tags —</span>
+                            {% endfor %}
                         </div>
-                        <!-- 1 end-->
-                        <!-- 2  -->
-                        <div class="item-related col-md-4">
-                            <a href="post-single.html#"><img src="{% static 'images/article/big/2.jpg' %}"   alt=""></a>
-                            <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
-                            <span class="post-date">25 may 2016</span>
+                        <div class="share-button">Share<i class="fa fa-bullhorn"></i></div>
+                        <div class="share-inner">
+                            <div class="share-container"  data-share="['facebook','pinterest','googleplus','twitter','linkedin']"></div>
                         </div>
-                        <!-- 2 end-->
-                        <!-- 3  -->
-                        <div class="item-related col-md-4">
-                            <a href="post-single.html#"><img src="{% static 'images/article/big/3.jpg' %}"   alt=""></a>
-                            <h3><a href="post-single.html#">Travel in   Oslo Norway</a></h3>
-                            <span class="post-date">25 may 2016</span>
-                        </div>
-                        <!-- 3 end-->
                     </div>
-                    <!-- post-related  end-->
-                    <!-- comments -->
-                    <div class="post-comments" id="comments">
-                        <h3 class="middle-title"> 3 Comments</h3>
-                        <ul class='comments'>
-                            <li class="comment">
-                                <div class="thecomment">
-                                    <div class="author-img">
-                                        <img  src="{% static 'images/author.jpg' %}"  alt="">
-                                    </div>
-                                    <div class="comment-text">
-                                        <span class="author">Matthew  Kowalsky</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-                                        <span class="date">August 23, 2016 at 11:41 am</span>
-                                        <span class="reply">
-                                        <a  class='comment-reply-link' href='post-single.html#' >Reply</a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
+                    <!--  tags share end -->
+                    <!-- facts -->
+                    <div class="art-facts">
+                        <ul class="post-counter">
+<!--                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>-->
+<!--                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>-->
+                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>{{ post.comments.count }}</span></li>
+                        </ul>
+                    </div>
+                    <!-- facts end -->
+                    <div class="limit-box"></div>
+                </div>
+            </article>
+            <!-- article end -->
+
+            <!--author -->
+            <div class="post-author">
+                <div class="post-author-wrap">
+                    <div class="post-author-img">
+                        <img src="{{ post.author.profile.get_avatar_url }}" alt="">
+                    </div>
+                    <span>Written By</span>
+                    <h3><a href="post-single.html#">{{ post.author|display_name }}</a></h3>
+                    <p>Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. </p>
+                    <ul>
+                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--author end-->
+
+            <h3 class="middle-title"> YOU MIGHT ALSO LIKE </h3>
+            <!-- post-related -->
+            <div class="post-related   row">
+                {% get_related_posts post as related_posts %}
+                {% for related in related_posts %}
+                    <div class="item-related col-md-4">
+                        <a href="{{ related.get_absolute_url }}">
+                            {% if related.images.first %}
+                              <img src="{{ related.images.first.image.url }}" alt="{{ related.title }}">
+                            {% else %}
+                              <img src="{% static 'placeholders/photo_placeholder.png' %}" alt="Placeholder">
+                            {% endif %}
+                         </a>
+                        <h3><a href="{{ related.get_absolute_url }}">{{ related.title }}</a></h3>
+                        <span class="post-date">{{ related.published_date | date:"d M Y" }}</span>
+                    </div>
+
+                {% empty %}
+                     <div><li> There is no related posts at now. </li></div>
+                {% endfor %}
+            </div>
+            <!-- post-related  end-->
+
+            <!-- comments -->
+            <div class="post-comments" id="comments">
+            <h3 class="middle-title">{{ post.comments.count }} Comments</h3>
+            {% for comment in comments %}
+                <ul class='comments'>
+                    <li class="comment">
+                        <div class="thecomment">
+                            <div class="author-img">
+                                <img src="{{ comment.user.profile.avatar.url }}" alt="">
+                            </div>
+                            <div class="comment-text">
+                                <span class="author">{{ comment.user|display_name }}</span>
+                                <p>{{ comment.text }}</p>
+                                <span class="date">{{ comment.creation_date|date:"d M Y, H:i" }}</span>
+                                <span class="reply">
+                                    <a class="comment-reply-link" href="?parent={{ comment.id }}#respond">Reply</a>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+                    {% if comment.replies.all %}
+                        {% for reply in comment.replies.all %}
                             <li class="comment children">
                                 <div class="thecomment">
                                     <div class="author-img">
-                                        <img  src="{% static 'images/author2.jpg' %}"  alt="">
+                                        <img src="{{ reply.user.profile.avatar.url }}" alt="">
                                     </div>
                                     <div class="comment-text">
-                                        <span class="author">Jane Kowalski</span>
-                                        <p>Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis. Sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus Lorem ipsum dosectetur adipisicing elit at leo dignissim congue. Mauris elementum accumsan leo vel tempor.</p>
-                                        <span class="date">August 13, 2015 at 11:41 am</span>
+                                        <span class="author">{{ reply.user|display_name }}</span>
+                                        <p>{{ reply.text }}</p>
+                                        <span class="date">{{ reply.creation_date|date:"d M Y, H:i" }}</span>
                                         <span class="reply">
-                                        <a  class='comment-reply-link' href='post-single.html#' >Reply</a>										</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- #comment-## -->
-                            <li class="comment">
-                                <div class="thecomment">
-                                    <div class="author-img">
-                                        <img  src="{% static 'images/author.jpg' %}" alt="">
-                                    </div>
-                                    <div class="comment-text">
-                                        <span class="author">Matthew  Kowalsky</span>
-                                        <p>At one extremity the rope was unstranded, and the separate spread yarns were all braided and woven round the socket of the harpoon; the pole was then driven hard up into the socket</p>
-                                        <span class="date">August 13, 2015 at 11:42 am</span>
-                                        <span class="reply">
-                                        <a  class='comment-reply-link' href='post-single.html#' >Reply</a>
+                                            <a class="comment-reply-link" href="?parent={{ reply.id }}#respond">Reply</a>
                                         </span>
                                     </div>
                                 </div>
                             </li>
-                            <!-- #comment-## -->
-                        </ul>
-                        <!-- comment form -->
-                        <div id="respond" class="comment-respond">
-                            <h3 id="reply-title" class="comment-reply-title">Leave a Reply  </h3>
-                            <form id="commentform" class="comment-form">
-                                <p class="comment-form-comment">
-                                    <textarea id="comment" name="comment"></textarea>
-                                </p>
-                                <p class="comment-form-author"><label for="author">Name <span class="required">*</span></label>
-                                    <input  name="author" type="text" value=""/>
-                                </p>
-                                <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value=""  /></p>
-                                <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value=""  /></p>
-                                <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> </p>
-                            </form>
-                        </div>
-                        <!-- #respond -->
-                    </div>
-                    <!-- end comments div -->
-                </div>
-                <!-- article-wrap end -->
 
-                <!--main-sidebar-->
-                {% include "partials/main-sidebar.html" %}
-                <!-- main-sidebar end-->
+                            {% if reply.replies.all %}
+                                {% for subreply in reply.replies.all %}
+                                    <li class="comment children" style="margin-left: 30px;">
+                                        <div class="thecomment">
+                                            <div class="author-img">
+                                                <img src="{{ subreply.user.profile.avatar.url }}" alt="">
+                                            </div>
+                                            <div class="comment-text">
+                                                <span class="author">{{ subreply.user|display_name }}</span>
+                                                <p>{{ subreply.text }}</p>
+                                                <span class="date">{{ subreply.creation_date|date:"d M Y, H:i" }}</span>
+<!--                                                <span class="reply">-->
+<!--                                                    <a class="comment-reply-link" href="?parent={{ subreply.id }}#respond">Reply</a>-->
+<!--                                                </span>-->
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            {% empty %}
+                <p>There are no comments here.</p>
+            {% endfor %}
+
+            <!-- comment form -->
+            {% if user.is_authenticated %}
+                <div id="respond" class="comment-respond">
+                    <h3 id="reply-title" class="comment-reply-title">Leave a Comment </h3>
+                    <form id="commentform" class="comment-form" method="post" action="">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <p class="comment-form-comment">
+                             {{ form.text.errors }}
+                             {{ form.text }}
+                        </p>
+                        {% if reply_to %}
+                            <input type="hidden" name="parent_id" value="{{ reply_to.id }}">
+                            <p>Replying to <strong>{{ reply_to.user|display_name }}</strong></p>
+                            <p><a href="{% url 'post_detail' slug=post.slug %}#respond">Cancel reply</a></p>
+                        {% endif %}
+                        <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> </p>
+                    </form>
+                </div>
+            {% else %}
+                <p><a href="{% url 'login' %}?next={{ request.path }}">Login</a>  or
+                    <a href="{% url 'register' %}">register</a> for comment.</p>
+            {% endif %}
+            <!-- #respond -->
             </div>
-            <!-- article-holder  end-->
+            <!-- end comments div -->
         </div>
+        <!-- article-wrap end -->
+
+        <!--main-sidebar-->
+        {% include "partials/main-sidebar.html" %}
+        <!-- main-sidebar end-->
     </div>
-</div>
-<!--Main  end -->
+    <!-- article-holder  end-->
+
 {% endblock %}

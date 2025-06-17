@@ -1,7 +1,8 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import DetailView, ListView, TemplateView
 
-from .models import Post, Tag, Category
+from .forms import CommentForm
+from .models import Post, Tag, Category, Comment
 
 
 class HomePageView(TemplateView):
@@ -19,12 +20,50 @@ class HomePageView(TemplateView):
         return context
 
 
-class SingePostView(DetailView):
+class SinglePostView(DetailView):
     template_name = 'post-single.html'
     model = Post
     context_object_name = 'post'
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = CommentForm()
+        context['comments'] = self.object.comments.filter(parent__isnull=True).order_by(
+            '-creation_date'
+        )
+
+        parent_id = self.request.GET.get('parent')
+        if parent_id and parent_id.isdigit():
+            parent_comment = self.object.comments.filter(id=parent_id).first()
+            context['reply_to'] = parent_comment
+        else:
+            context['reply_to'] = None
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = self.object
+            comment.user = request.user
+
+            parent_id = request.POST.get('parent_id')
+            if parent_id:
+                try:
+                    parent_comment = Comment.objects.get(id=parent_id, post=self.object)
+                    comment.parent = parent_comment
+                except Comment.DoesNotExist:
+                    comment.parent = None
+
+            comment.save()
+            return redirect(self.request.path)
+
+        context = self.get_context_data()
+        context['form'] = form
+        return self.render_to_response(context)
 
 
 class AboutPage(TemplateView):

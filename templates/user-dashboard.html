@@ -4,7 +4,7 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-<h2>{{ title }}</h2>
+<h2 class="single-article-title fl-wrap"><a>{{ title }}</a></h2>
 
 <h3>Welcome, {{ user.profile.nickname }}!</h3>
 <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}" alt=""></div>
@@ -61,16 +61,20 @@
                     </div>
                     <div class="list-item">
                         <ul class="cat-list">
-                            <li><a href="index6.html#">{{ post.published_date|date:"d M Y" }}</a></li>
-                            <li><a href="index6.html#">{{ post.author.nickname }}</a></li>
+                            <li><a href="#">{{ post.published_date|date:"d M Y" }}</a></li>
+                            {% for tag in post.tags.all %}
+                                <li><a href="{% url 'posts_by_tag' tag.slug %}">{{ tag.name }}</a></li>
+                            {% empty %}
+                                <li><span>— No tags —</span></li>
+                            {% endfor %}
                         </ul>
                         <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
                         <p>{{ post.content|truncatewords:30 }}</p>
                         <a href="{{ post.get_absolute_url }}" class="post-link">Read More</a>
                         <ul class="post-counter">
-                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
-                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
+<!--                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>-->
+<!--                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>-->
+                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>{{ post.comments.count }}</span></li>
                         </ul>
                     </div>
                 </article>

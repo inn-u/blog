@@ -1,4 +1,7 @@
 {% load static %}
+{% load custom_filters %}
+
+
   <div class="subscribe-wrap fw-wrap">
       <div class="bg"  data-bg="{% static 'images/dec/1.jpg' %}"></div>
       <div class="container">
@@ -21,6 +24,8 @@
             <p>" Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc. "</p>
           </div>
         </div>
+
+        <!-- Resent post widget -->
         <div class="footer-widget-inner">
           <div class="footer-widget">
             <h3>Recent posts</h3>
@@ -36,7 +41,7 @@
                             <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
                             <div class="recent-post-opt">
                                 <span class="post-date">{{ post.published_date|date:"d M Y" }}</span>
-                                <a href="index.html#" class="post-comments">0 Comments</a>
+                                <a href="#" class="post-comments">{{ post.comment_count }} Comments</a>
                             </div>
                         </div>
                     </li>
@@ -47,20 +52,33 @@
             </div>
           </div>
         </div>
+        <!--End resent post windget-->
+
+        <!-- Last comment widget-->
         <div class="footer-widget-inner">
           <div class="footer-widget">
             <h3>Last comments</h3>
             <div class="comment-widget">
               <ul class="comm-list">
-                <li>
-                  <span class="comm-date">17 May 2016</span>
-                  <p>At tincidunt erat hendrerit. Vestibulum ultrices ipsum id</p>
-                  <div class="commnet-link">By Markus on <a href="#" class="comment-link">Post with slider</a></div>
-                </li>
+                {% get_latest_comments as latest_comments %}
+                {% for comment in latest_comments %}
+                    <li>
+                      <span class="comm-date">{{ comment.creation_date|date:"d M Y, H:i" }}</span>
+                      <p>{{ comment.text|truncatechars:50 }}</p>
+                      <div class="commnet-link">
+                          By {{ comment.user|display_name }} on
+                          <a href="{{ comment.post.get_absolute_url }}" class="comment-link">{{ comment.post.title }}</a>
+                      </div>
+                    </li>
+                {% empty %}
+                    <li>No comments yet.</li>
+                {% endfor %}
               </ul>
             </div>
           </div>
         </div>
+        <!-- End last comment widget-->
+
         <div class="footer-widget-inner">
           <div class="footer-widget">
             <h3>Our instagram</h3>

@@ -41,9 +41,9 @@
                             <p>{{ featured_post.content|truncatewords:30 }}</p>
                         </div>
                         <ul class="post-counter">
-                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
-                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
+<!--                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>-->
+<!--                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>-->
+                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>{{ featured_post.comments.count }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -82,9 +82,9 @@
                         <p>{{ post.content|truncatewords:30 }}</p>
                         <a href="{{ post.get_absolute_url }}" class="post-link">Read More</a>
                         <ul class="post-counter">
-                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>
-                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>10</span></li>
+<!--                            <li><i class="fa fa-heart-o" aria-hidden="true"></i> <span>153</span></li>-->
+<!--                            <li><i class="fa fa-eye" aria-hidden="true"></i><span>687</span></li>-->
+                            <li><i class="fa fa-comment-o" aria-hidden="true"></i><span>{{ post.comments.count }}</span></li>
                         </ul>
                     </article>
                 </div>

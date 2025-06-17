@@ -78,3 +78,22 @@ class Category(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    text = models.TextField(blank=False)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    parent = models.ForeignKey(
+        'self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE
+    )
+
+    class Meta:
+        ordering = ['-creation_date']
+
+    def is_reply(self):
+        return self.parent is not None
+
+    def __str__(self):
+        return f'Comment by {self.user} on {self.post}'
