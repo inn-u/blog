@@ -5,8 +5,8 @@ from django.utils.text import slugify
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    slug = models.SlugField(max_length=60, unique=True, blank=True)
+    name = models.CharField(max_length=60, unique=True)
+    slug = models.SlugField(max_length=70, unique=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -27,6 +27,7 @@ class Post(models.Model):
         get_user_model(), on_delete=models.CASCADE, related_name='posts', null=True
     )
     is_featured = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
