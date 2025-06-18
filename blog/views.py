@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import DetailView, ListView, TemplateView
 
 from .forms import CommentForm
-from .models import Post, Tag, Category, Comment
+from .models import Post, Tag, Category, Comment, PostImage
 
 
 class HomePageView(TemplateView):
@@ -108,3 +108,13 @@ class ContactPage(TemplateView):
 
 class Error404(TemplateView):
     template_name = '404.html'
+
+
+class PhotoGallery(TemplateView):
+    template_name = 'gallery.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['images'] = PostImage.objects.all().select_related('post__category')
+        context['categories'] = Category.objects.all()
+        return context
