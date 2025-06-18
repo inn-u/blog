@@ -64,24 +64,14 @@
             <div class="instagram-widget">
                 <div class='jr-insta-thumb'>
                     <ul>
-                        <li>
-                            <a href="index.html#"><img src="{% static 'images/instagram/1.jpg' %}" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="index.html#"><img src="{% static 'images/instagram/2.jpg' %}" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="index.html#"><img src="{% static 'images/instagram/3.jpg' %}" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="index.html#"><img src="{% static 'images/instagram/4.jpg' %}" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="index.html#"><img src="{% static 'images/instagram/5.jpg' %}" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="index.html#"><img src="{% static 'images/instagram/6.jpg' %}" alt=""></a>
-                        </li>
+                        {% latest_images as latest_images %}
+                        {% for img in latest_images %}
+                            <li><a href="{{ img.post.get_absolute_url }}">
+                                <div class="square-thumb">
+                                    <img src="{{ img.image.url }}" alt="">
+                                </div></a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 from django import template
-from blog.models import Tag, Comment, Post
+from blog.models import Tag, Comment, Post, PostImage
 from django.db.models import Max
 from django.templatetags.static import static
 
@@ -56,3 +56,8 @@ def post_image_or_placeholder(post):
     if first_image:
         return first_image.image.url
     return static('placeholders/photo_placeholder.png')
+
+
+@register.simple_tag
+def latest_images(count=6):
+    return PostImage.objects.order_by('-id')[:count]

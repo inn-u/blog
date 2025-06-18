@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+<div class="clearfix"></div>
+<div class="container">
+    <!--Category bar holder-->
+    {% include "partials/category-navigation.html" %}
+    <!--End category bar holder-->
+
+    <!-- article-holder -->
+    <div class="article-holder">
+        <!-- article-wrap-->
+        <div class="article-wrap  n-sb-wrap">
+            <h3 class="big-title"> Gallery </h3>
+            <div class="separator img-separator"><img src="{% static 'images/sep-blk.png' %}"  alt=""></div>
+            <!-- article  -->
+            <div class="gallery-filters fl-wrap">
+                <ul>
+                    <li>
+                        <a href="gallery.html#" class="gallery-filter gallery-filter-active"  data-filter="*"><span>All</span></a>
+                    </li>
+                    {% for category in categories %}
+                    <li>
+                        <a href="gallery.html#" class="gallery-filter " data-filter=".{{ category.slug }}"><span>{{ category.name }}</span></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- article end -->
+
+        <div class="row grid-sb-holder gallery-holder">
+            {% for img in images %}
+            <!-- article  -->
+            <div class="col-md-4 grid-sb-wrap {{ img.post.category.slug }}">
+                <a href="{{ img.post.get_absolute_url }}">
+                <img src="{{ img.image.url }}" class="respimg" alt="">
+                <span>{{ img.post.title }}</span>
+                </a>
+            </div>
+            {% empty %}
+                <p>There is no images at now.</p>
+            {% endfor %}
+            <!-- article end -->
+        </div>
+    </div>
+    <!-- article-holder  end-->
+</div>
+
+{% endblock %}
