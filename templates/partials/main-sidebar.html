@@ -24,7 +24,7 @@
                     <li>
                         <div class="recent-post-img">
                             <a href="{{ post.get_absolute_url }}">
-                            <img src="{{ post.images.first.image.url }}" alt=""></a>
+                            <img src="{% post_image_or_placeholder post %}" alt=""></a>
                         </div>
                         <div class="recent-post-content">
                             <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>

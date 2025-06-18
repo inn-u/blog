@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block title %}Main page{% endblock %}
 {% block header %}Travel Blog{% endblock %}
@@ -24,7 +25,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="blog-media">
-                            <img src="{{ featured_post.images.first.image.url }}" class="respimg" alt="">
+                            <img src="{% post_image_or_placeholder featured_post %}" class="featured-img" alt="{{ featured_post.title }}">
                             <div class="overlay"></div>
                         </div>
                         <div class="fp-desc">
@@ -62,11 +63,7 @@
                 <div class="col-md-6 grid-sb-wrap">
                     <article class="grid-sb">
                         <div class="blog-media">
-                            {% if post.images.first %}
-                                <img src="{{ post.images.first.image.url }}" class="respimg" alt="">
-                            {% else %}
-                                <img src="{% static 'images/default.jpg' %}" class="respimg" alt="">
-                            {% endif %}
+                            <img src="{% post_image_or_placeholder post %}" class="main-related-img" alt="">
                             <div class="overlay"></div>
                             <a href="{{ post.get_absolute_url }}" class="dec-link">Read Article</a>
                         </div>

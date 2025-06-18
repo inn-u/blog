@@ -218,6 +218,20 @@ blockquote p {
 	width:100%;
 	height:auto;
 }
+.featured-img {
+	width: 701px;
+    height: 464px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.main-related-img {
+	width: 335px;
+    height: 222px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
 .overlay {
 	position:absolute;
 	top:0;
@@ -1515,11 +1529,25 @@ ul {
 	padding-bottom:2px;
 	margin-bottom:4px;
 }
+.grid-sb-main {
+	position:relative;
+	float:left;
+	width:100%;
+	overflow:hidden;
+	height: 447px;
+}
 .grid-sb {
 	position:relative;
 	float:left;
 	width:100%;
 	overflow:hidden;
+}
+.grid-sb img {
+	margin-left: auto;
+	margin-right: auto;
+	max-height: 180px;
+	object-fit: cover;
+	display: block;
 }
 .grid-sb .overlay {
 	opacity:0;

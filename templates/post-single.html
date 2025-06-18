@@ -34,7 +34,7 @@
                     <div class="single-slider-holder fl-wrap slider-wrapper">
                         <div class="single-slider fl-wrap">
                             {% for image in post.images.all %}
-                                <div class="div class="item {% if forloop.first %}active{% endif %}">
+                                <div class="item {% if forloop.first %}active{% endif %}">
                                     <img src="{{ image.image.url }}" alt="post image">
                                 </div>
                             {% empty %}

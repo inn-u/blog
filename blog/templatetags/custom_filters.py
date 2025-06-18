@@ -1,6 +1,7 @@
 from django import template
 from blog.models import Tag, Comment, Post
 from django.db.models import Max
+from django.templatetags.static import static
 
 register = template.Library()
 
@@ -47,3 +48,11 @@ def get_related_posts(post, count=3):
         .exclude(id=post.id)
         .order_by('-published_date')[:count]
     )
+
+
+@register.simple_tag
+def post_image_or_placeholder(post):
+    first_image = post.images.first()
+    if first_image:
+        return first_image.image.url
+    return static('placeholders/photo_placeholder.png')

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block content %}
 <div class="container">
@@ -54,7 +55,7 @@
                 <div class="col-md-12 grid-sb-wrap">
                     <article class="grid-sb">
                         <div class="blog-media">
-                            <img src="{{ post.images.first.image.url }}" class="respimg" alt="">
+                            <img src="{% post_image_or_placeholder post %}" class="respimg" alt="">
                             <div class="overlay"></div>
                             <a href="{{ post.get_absolute_url }}" class="dec-link">Read Article</a>
                         </div>
