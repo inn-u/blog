@@ -59,7 +59,7 @@
             <div class="clearfix"></div>
             <div class="row grid-sb-holder">
                 <!--Post holder-->
-                {% for post in posts %}
+                {% for post in posts|slice:":6" %}
                 <div class="col-md-6 grid-sb-wrap">
                     <article class="grid-sb">
                         <div class="blog-media">

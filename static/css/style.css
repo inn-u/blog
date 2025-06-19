@@ -2667,6 +2667,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	position:relative;
 }
 .main-page-nav ul li span:before {
+	display: none;
 	content:'';
 	position:absolute;
 	top:-3px;

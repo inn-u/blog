@@ -31,7 +31,7 @@
             <h3>Recent posts</h3>
             <div class="recent-post-widget">
                 <ul>
-                    {% for post in recent_posts %}
+                    {% for post in recent_posts|slice:":3" %}
                     <li>
                         <div class="recent-post-img">
                             <a href="{{ post.get_absolute_url }}">
