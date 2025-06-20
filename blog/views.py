@@ -75,6 +75,7 @@ class ListPostView(ListView):
     model = Post
     context_object_name = 'posts'
     ordering = ['-published_date']
+    paginate_by = 10
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -115,6 +116,8 @@ class PhotoGallery(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['images'] = PostImage.objects.all().select_related('post__category')
+        context['images'] = PostImage.objects.select_related('post__category').order_by(
+            '-id'
+        )
         context['categories'] = Category.objects.all()
         return context

@@ -6,7 +6,7 @@ from .models import Post, Category
 def recent_posts(request):
     posts = Post.objects.annotate(comment_count=Count('comments')).order_by(
         '-published_date'
-    )[:3]
+    )[:6]
     return {'recent_posts': posts}
 
 

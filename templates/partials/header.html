@@ -45,28 +45,26 @@
                       <a href="{% url 'post_list' %}">Posts</a>
                       <!--second level  -->
                       <ul>
-                          <li><a href="post-single.html">Slider</a></li>
-                          <li><a href="post-single2.html">Galley</a></li>
-                          <li><a href="post-single3.html">Video</a></li>
-                          <li><a href="post-single4.html">Image</a></li>
-                          <li><a href="post-single5.html">Music</a></li>
+                          {% for post in recent_posts %}
+                            {% if post.slug %}
+                                <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                            {% endif %}
+                          {% endfor %}
                       </ul>
                       <!--second level end-->
                   </li>
                   <li>
-                      <a href="index.html#">Category</a>
+                      <a href="#">Category</a>
                       <!--second level end-->
                       <ul>
-                          <li><a href="index.html#">Travel</a></li>
-                          <li><a href="index.html#">Films</a></li>
-                          <li><a href="index.html#">Outdoor</a></li>
-                          <li><a href="index.html#">Photos</a></li>
-                          <li><a href="index.html#">Lifestyle</a></li>
+                          {% for category in category_menu %}
+                            <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+                          {% endfor %}
                       </ul>
                       <!--second level end-->
                   </li>
                   <li>
-                      <a href="{ url 'gallery' }">Gallery</a>
+                      <a href="{% url 'gallery' %}">Gallery</a>
                   </li>
                   <li><a href="{% url 'contact' %}">Contact</a></li>
               </ul>
