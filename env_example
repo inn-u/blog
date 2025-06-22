@@ -1,0 +1,13 @@
+SECRET_KEY='some-secret-key'
+
+# Database credentials
+POSTGRES_NAME=name
+POSTGRES_USER=user
+POSTGRES_PASSWORD=pass
+POSTGRES_HOST=host
+POSTGRES_PORT=5432
+
+DB_HOST=db
+
+# Dummy password for tests
+TEST_PASSWORD=test_password
