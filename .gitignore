@@ -176,5 +176,4 @@ cython_debug/
 # test files for avatar and post images gallery
 # Ігнорувати весь вміст у папці media та всіх її підпапках
 media/**/*
-# Виключити з ігнорування всі файли .gitkeep у папці media та всіх її підпапках
 !media/**/.gitkeep
