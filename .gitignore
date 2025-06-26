@@ -173,7 +173,6 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# test files for avatar and post images gallery
-# Ігнорувати весь вміст у папці media та всіх її підпапках
+# files for avatar and post images gallery
 media/**/*
 !media/**/.gitkeep

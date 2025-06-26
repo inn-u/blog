@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
-from django.utils.text import slugify
+from config.utils.slugify_utils import slugify, slug_trim, slug_uniq
 
 
 class Tag(models.Model):
@@ -10,7 +10,8 @@ class Tag(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            base_slug = slug_trim(slugify(self.name), max_length=70)
+            self.slug = slug_uniq(self.__class__, base_slug, max_length=70)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -37,15 +38,12 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            base_slug = slugify(self.title)
-            slug = base_slug
-            counter = 1
-            while Post.objects.filter(slug=slug).exists():
-                slug = f'{base_slug}-{counter}'
-                counter += 1
-            self.slug = slug
-            if self.is_featured:
-                Post.objects.filter(is_featured=True).update(is_featured=False)
+            base_slug = slug_trim(slugify(self.title))
+            self.slug = slug_uniq(self.__class__, base_slug)
+
+        if self.is_featured:
+            Post.objects.filter(is_featured=True).update(is_featured=False)
+
         super().save(*args, **kwargs)
 
     category = models.ForeignKey(
@@ -77,7 +75,9 @@ class Category(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            max_len = self._meta.get_field('slug').max_length
+            base_slug = slug_trim(slugify(self.name), max_length=max_len)
+            self.slug = slug_uniq(self.__class__, base_slug, max_length=max_len)
         super().save(*args, **kwargs)
 
 
