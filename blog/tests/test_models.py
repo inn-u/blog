@@ -2,7 +2,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth import get_user_model
-from django.utils.text import slugify
+from config.utils.slugify_ua import slugify
 import os
 
 from blog.models import Tag, Post, Category, PostImage, Comment
