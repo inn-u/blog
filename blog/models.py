@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
-from config.utils.slugify_utils import slugify, slug_trim, slug_uniq
+from config.utils.slugify_utils import slugify, slug_trim, SlugUnique
 
 
 class Tag(models.Model):
@@ -11,7 +11,7 @@ class Tag(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slug_trim(slugify(self.name), max_length=70)
-            self.slug = slug_uniq(self.__class__, base_slug, max_length=70)
+            self.slug = SlugUnique(self.__class__, base_slug, max_length=70)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -39,7 +39,8 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slug_trim(slugify(self.title))
-            self.slug = slug_uniq(self.__class__, base_slug)
+            slug_unique = SlugUnique(model_cls=self.__class__)
+            self.slug = slug_unique(base_slug)
 
         if self.is_featured:
             Post.objects.filter(is_featured=True).update(is_featured=False)
@@ -77,7 +78,7 @@ class Category(models.Model):
         if not self.slug:
             max_len = self._meta.get_field('slug').max_length
             base_slug = slug_trim(slugify(self.name), max_length=max_len)
-            self.slug = slug_uniq(self.__class__, base_slug, max_length=max_len)
+            self.slug = SlugUnique(self.__class__, base_slug, max_length=max_len)
         super().save(*args, **kwargs)
 
 
