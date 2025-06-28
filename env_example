@@ -1,13 +1,14 @@
 SECRET_KEY='some-secret-key'
 
+DEBUG=False
+ALLOWED_HOSTS=127.0.0.1,localhost
+
 # Database credentials
 POSTGRES_NAME=name
 POSTGRES_USER=user
 POSTGRES_PASSWORD=pass
 POSTGRES_HOST=host
 POSTGRES_PORT=5432
-
-DB_HOST=db
 
 # Dummy password for tests
 TEST_PASSWORD=test_password
