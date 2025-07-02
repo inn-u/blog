@@ -11,7 +11,7 @@ class Tag(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             base_slug = slug_trim(slugify(self.name), max_length=70)
-            self.slug = SlugUnique(self.__class__, base_slug, max_length=70)
+            self.slug = SlugUnique(self.__class__, max_length=70)(base_slug)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -78,7 +78,7 @@ class Category(models.Model):
         if not self.slug:
             max_len = self._meta.get_field('slug').max_length
             base_slug = slug_trim(slugify(self.name), max_length=max_len)
-            self.slug = SlugUnique(self.__class__, base_slug, max_length=max_len)
+            self.slug = SlugUnique(self.__class__, max_length=max_len)(base_slug)
         super().save(*args, **kwargs)
 
 
