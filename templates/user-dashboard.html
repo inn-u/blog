@@ -24,7 +24,11 @@
                     <p>{{ fname }} {{ lname }}</p>
                     {% endif %}
                 {% endwith %}
-            </p>
+
+           {% if user.profile.about_me %}
+                <p>{{ user.profile.about_me }}</p>
+           {% endif %}
+
             <ul>
                 <a href="{% url 'edit-profile' %}" class="post-link">Edit Profile</a>
             </ul>

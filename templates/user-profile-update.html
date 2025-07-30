@@ -11,35 +11,40 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <p>
-      {{ form.nickname.label_tag }}
-      {{ form.nickname }}
-      {{ form.nickname.errors }}
+        {{ form.nickname.label_tag }}
+        {{ form.nickname }}
+        {{ form.nickname.errors }}
     </p>
     <p>
-      {{ form.first_name.label_tag }}
-      {{ form.first_name }}
-      {{ form.first_name.errors }}
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+        {{ form.first_name.errors }}
     </p>
     <p>
-      {{ form.last_name.label_tag }}
-      {{ form.last_name }}
-      {{ form.last_name.errors }}
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+        {{ form.last_name.errors }}
     </p>
     <p>
-      {{ form.date_of_birth.label_tag }}
-      {{ form.date_of_birth }}
-      {{ form.date_of_birth.errors }}
+        {{ form.about_me.label_tag }}
+        {{ form.about_me }}
+        {{ form.about_me.errors }}
     </p>
     <p>
-      {{ form.avatar.label_tag }}
+        {{ form.date_of_birth.label_tag }}
+        {{ form.date_of_birth }}
+        {{ form.date_of_birth.errors }}
+    </p>
+    <p>
+        {{ form.avatar.label_tag }}
 
-      {% if form.instance.avatar %}
-        <img src="{{ form.instance.avatar.url }}" alt="Current avatar"
+        {% if form.instance.avatar %}
+            <img src="{{ form.instance.avatar.url }}" alt="Current avatar"
              style="max-height: 150px; display: block; margin-bottom: 10px;">
-      {% endif %}
+        {% endif %}
 
-      {{ form.avatar }}
-      {{ form.avatar.errors }}
+        {{ form.avatar }}
+        {{ form.avatar.errors }}
     </p>
     <button type="submit">Save changes</button>
   </form>
