@@ -56,3 +56,8 @@ class UserProfileTest(TestCase):
         self.assertEqual(
             self.profile.get_avatar_url(), static('placeholders/avatar-placeholder.png')
         )
+
+    def test_about_me_field(self):
+        self.profile.about_me = 'Just a test about me'
+        self.profile.save()
+        self.assertEqual(self.profile.about_me, 'Just a test about me')
