@@ -89,7 +89,11 @@
                     </div>
                     <span>Written By</span>
                     <h3><a href="post-single.html#">{{ post.author|display_name }}</a></h3>
-                    <p>Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. </p>
+
+                    {% if post.author.profile.about_me %}
+                        <p>{{ post.author.profile.about_me }}</p>
+                    {% endif %}
+
                     <ul>
                         <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
                         <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>

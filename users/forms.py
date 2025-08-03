@@ -26,7 +26,14 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomUserChangeForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['first_name', 'last_name', 'date_of_birth', 'nickname', 'avatar']
+        fields = [
+            'first_name',
+            'last_name',
+            'date_of_birth',
+            'about_me',
+            'nickname',
+            'avatar',
+        ]
         widgets = {
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
             'first_name': forms.TextInput(
@@ -37,5 +44,11 @@ class CustomUserChangeForm(forms.ModelForm):
             ),
             'nickname': forms.TextInput(
                 attrs={'class': 'form-control', 'placeholder': 'Enter nickname'}
+            ),
+            'about_me': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Add few words about you',
+                }
             ),
         }
