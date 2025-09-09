@@ -33,6 +33,9 @@ class CustomUserChangeForm(forms.ModelForm):
             'about_me',
             'nickname',
             'avatar',
+            'facebook',
+            'twitter',
+            'instagram',
         ]
         widgets = {
             'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
@@ -49,6 +52,18 @@ class CustomUserChangeForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                     'placeholder': 'Add few words about you',
+                }
+            ),
+            'facebook': forms.TextInput(
+                attrs={'class': 'form-control', 'placeholder': 'Your facebook page'}
+            ),
+            'twitter': forms.TextInput(
+                attrs={'class': 'form-control', 'placeholder': 'Your facebook twitter'}
+            ),
+            'instagram': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Your facebook instagram',
                 }
             ),
         }

@@ -33,6 +33,9 @@ class UserProfile(models.Model):
     about_me = models.CharField(
         max_length=240, blank=True, null=True, verbose_name='About author'
     )
+    facebook = models.URLField(max_length=200, null=True, blank=True)
+    twitter = models.URLField(max_length=200, null=True, blank=True)
+    instagram = models.URLField(max_length=200, null=True, blank=True)
 
     @property
     def email(self) -> str:

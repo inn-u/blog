@@ -95,10 +95,29 @@
                     {% endif %}
 
                     <ul>
-                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="post-single.html#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="post-single.html#" target="_blank" ><i class="fa fa-tumblr"></i></a></li>
+                        {% if post.author.profile.facebook %}
+                            <li>
+                                <a href="{{ post.author.profile.facebook }}" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if user.profile.twitter %}
+                            <li>
+                                <a href="{{ post.author.profile.twitter }}" target="_blank">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if user.profile.instagram %}
+                            <li>
+                                <a href="{{ post.author.profile.instagram }}" target="_blank">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

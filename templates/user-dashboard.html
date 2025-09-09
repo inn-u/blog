@@ -30,6 +30,32 @@
            {% endif %}
 
             <ul>
+                {% if user.profile.facebook %}
+                    <li>
+                        <a href="{{ user.profile.facebook }}" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if user.profile.twitter %}
+                    <li>
+                        <a href="{{ user.profile.twitter }}" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if user.profile.instagram %}
+                    <li>
+                        <a href="{{ user.profile.instagram }}" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+
+            <ul>
                 <a href="{% url 'edit-profile' %}" class="post-link">Edit Profile</a>
             </ul>
         </div>
